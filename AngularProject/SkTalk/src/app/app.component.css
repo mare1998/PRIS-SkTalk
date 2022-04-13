@@ -13,6 +13,25 @@
 	z-index: 10;
 	position: fixed;
 }
+.logo-image{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin-top: -6px;
+}
+
+.naslov {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 100%;
+	min-width: 150px;
+	justify-content: center;
+	color: rgb(126, 37, 37)!important;
+	text-transform: uppercase;
+	font-weight: 800;
+	cursor: pointer;
+}
 
 .nav_drop a, .nav a:link, .nav a:active, .nav a:visited, .nav a:hover {
 	text-transform: uppercase;

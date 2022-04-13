@@ -8,6 +8,8 @@ import { KategorijeComponent } from './components/kategorije/kategorije.componen
 import { AddKursComponent } from './components/add-kurs/add-kurs.component';
 import { AddPredavacComponent } from './components/add-predavac/add-predavac.component';
 import { AddKategorijaComponent } from './components/add-kategorija/add-kategorija.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +18,12 @@ import { AddKategorijaComponent } from './components/add-kategorija/add-kategori
     KategorijeComponent,
     AddKursComponent,
     AddPredavacComponent,
-    AddKategorijaComponent
+    AddKategorijaComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
