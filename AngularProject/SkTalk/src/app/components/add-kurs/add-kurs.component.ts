@@ -12,4 +12,8 @@ export class AddKursComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  dodajKurs() {
+    
+  }
+
 }
