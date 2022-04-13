@@ -12,4 +12,8 @@ export class AddPredavacComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  dodavanjePredavaca(predavacForm:any) {
+    
+  }
+
 }
