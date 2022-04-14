@@ -1,74 +1,105 @@
+<!-- (ngSubmit)="dodajNoviKurs(kursForm)" -->
+<div class="bg">
+  <div class="row">
+    <div class="col-sm">
+      <form style="padding-left: 150px;" #kursForm="ngForm">
 
- <!-- (ngSubmit)="dodajNoviKurs(kursForm)" -->
- <div class="bg">
-   <div class="row">
-     <div class="col-sm">
- <form style="padding-left: 150px;" #kursForm="ngForm">
-  
-    <div class="naslov"><span style="background-color: aliceblue;"><h3 style="font-size: 50px;">Dodavanje novog kursa</h3></span></div> <hr>
-    <div class="row">
-        <div class="col-sm">
-    <div class="flier"><img class="flier" src="https://t4.ftcdn.net/jpg/01/71/57/89/360_F_171578974_eNhE6sEpc6jsK6Py7IxhTbIZZQ7878Wb.jpg" height="50" width="50"></div></div>
-    <div class="col-sm">
-        <div class="flier"><img class="flier" src="https://media.istockphoto.com/photos/germany-flag-picture-id475988677?k=20&m=475988677&s=612x612&w=0&h=3AUulSzs5pWt9jkDksiBSdZCLDcc26V70gDWo32CKz0=" height="50" width="50"></div>
-    </div>
-    <div class="col-sm">
-        <div class="flier"><img class="flier" src="https://thumbs.dreamstime.com/b/silk-spain-flag-over-texture-167324992.jpg" height="50" width="50"></div>
-    </div>
-    <div class="col-sm">
-        <div class="flier"><img class="flier" src="https://thumbs.dreamstime.com/b/french-flag-waving-wind-symbol-france-silk-117113698.jpg" height="50" width="50"></div> 
-    </div>
-    <div class="col-sm">
-        <div class="flier"><img class="flier" src="https://www.worldatlas.com/r/w1200/upload/20/07/2a/shutterstock-152854481.jpg" height="50" width="50"></div> 
-    </div>
-    <div class="col-sm">
-        <div class="flier"><img class="flier" src="https://media.istockphoto.com/photos/flag-of-sweden-waving-background-picture-id983123698?k=20&m=983123698&s=170667a&w=0&h=RefSD1I_9GUuU-stcBp9xf6ofKQ9RJiIV2Kzd8E17Eg=" height="50" width="50"></div> 
-    </div>
-    <div class="col-sm">
-        <div class="flier"><img class="flier" src="https://www.advantour.com/russia/images/symbolics/russia-flag.jpg" height="50" width="50"></div> 
-    </div>
-    </div>
-    <hr>
-    <div class="form-group">
-        <div class="dropdown">
-            <div class="row"> 
-            <div class="col-sm">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Odaberite kategoriju za novi kurs
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="naslov"><span style="background-color: aliceblue;">
+            <h3 style="font-size: 50px;">Dodavanje novog kursa</h3>
+          </span></div>
+        <hr>
+        <div class="row">
+          <div class="col-sm">
+            <div class="flier"><img class="flier"
+                src="https://t4.ftcdn.net/jpg/01/71/57/89/360_F_171578974_eNhE6sEpc6jsK6Py7IxhTbIZZQ7878Wb.jpg"
+                height="50" width="50"></div>
+          </div>
+          <div class="col-sm">
+            <div class="flier"><img class="flier"
+                src="https://media.istockphoto.com/photos/germany-flag-picture-id475988677?k=20&m=475988677&s=612x612&w=0&h=3AUulSzs5pWt9jkDksiBSdZCLDcc26V70gDWo32CKz0="
+                height="50" width="50"></div>
+          </div>
+          <div class="col-sm">
+            <div class="flier"><img class="flier"
+                src="https://thumbs.dreamstime.com/b/silk-spain-flag-over-texture-167324992.jpg" height="50" width="50">
             </div>
           </div>
           <div class="col-sm">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Odaberite predavaca za novi kurs
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          </div></div></div></div><br>
-        <label>Naziv novog kursa:</label>
-        <input type="text" class="form-control" placeholder="Naziv novog kursa">
-      </div>
-      <div class="form-group">
-        <label>Opis novog kursa:</label>
-        <input type="text" class="form-control" placeholder="Opis novog kursa">
-      </div>
-      <div class="form-group">
-        <label>Ocekivani ishod kursa: </label>
-        <textarea type="textarea" class="form-control" placeholder="Ocekivani ishod kursa"></textarea>
-      </div>
-      <div class="form-group">
-        <label>Maksimalni broj polaznika:</label>
-        <input type="number" class="form-control" value="1">
-      </div>
-      <div class="row"> 
-        <div class="col-sm">
-          <div class="form-group">
-          <label>Cena:</label>
-        <input type="number" class="form-control" value="1"></div></div>
-        <div class="col-sm">
-          <div class="form-group"><br>
-      <button  type="submit" class="btn btn-primary">Dodaj novi kurs</button></div></div></div>
-</form></div></div>
-<div style="padding: 300px;" class="col-sm">
- <div><img class="rotate" src="https://o.remove.bg/downloads/c8aa0c90-3fc9-488d-baaa-0122bc19cef0/flags-world-globe-sphere-13916510-removebg-preview.png"></div>
-</div></div>
+            <div class="flier"><img class="flier"
+                src="https://thumbs.dreamstime.com/b/french-flag-waving-wind-symbol-france-silk-117113698.jpg"
+                height="50" width="50"></div>
+          </div>
+          <div class="col-sm">
+            <div class="flier"><img class="flier"
+                src="https://www.worldatlas.com/r/w1200/upload/20/07/2a/shutterstock-152854481.jpg" height="50"
+                width="50"></div>
+          </div>
+          <div class="col-sm">
+            <div class="flier"><img class="flier"
+                src="https://media.istockphoto.com/photos/flag-of-sweden-waving-background-picture-id983123698?k=20&m=983123698&s=170667a&w=0&h=RefSD1I_9GUuU-stcBp9xf6ofKQ9RJiIV2Kzd8E17Eg="
+                height="50" width="50"></div>
+          </div>
+          <div class="col-sm">
+            <div class="flier"><img class="flier"
+                src="https://www.advantour.com/russia/images/symbolics/russia-flag.jpg" height="50" width="50"></div>
+          </div>
+        </div>
+        <hr>
+        <div class="form-group">
+          <div class="dropdown">
+            <div class="row">
+              <div class="col-sm">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Odaberite kategoriju za novi kurs
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                </div>
+              </div>
+              <div class="col-sm">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Odaberite predavaca za novi kurs
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                </div>
+              </div>
+            </div>
+          </div><br>
+          <label>Naziv novog kursa:</label>
+          <input type="text" class="form-control" placeholder="Naziv novog kursa">
+        </div>
+        <div class="form-group">
+          <label>Opis novog kursa:</label>
+          <input type="text" class="form-control" placeholder="Opis novog kursa">
+        </div>
+        <div class="form-group">
+          <label>Ocekivani ishod kursa: </label>
+          <textarea type="textarea" class="form-control" placeholder="Ocekivani ishod kursa"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Maksimalni broj polaznika:</label>
+          <input type="number" class="form-control" value="1">
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label>Cena:</label>
+              <input type="number" class="form-control" value="1">
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group"><br>
+              <button type="submit" class="btn btn-primary">Dodaj novi kurs</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div style="padding: 300px;" class="col-sm">
+    <div><img class="rotate"
+        src="https://o.remove.bg/downloads/c8aa0c90-3fc9-488d-baaa-0122bc19cef0/flags-world-globe-sphere-13916510-removebg-preview.png">
+    </div>
+  </div>
+</div>

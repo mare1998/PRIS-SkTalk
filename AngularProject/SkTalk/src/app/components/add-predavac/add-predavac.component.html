@@ -1,1 +1,29 @@
-<p>add-predavac works!</p>
+<div class="bg">
+    <form style="padding: 100px;" #predavacForm="ngForm"><br><br><br><br>
+        <div class="naslov"><span style="background-color: aliceblue;">
+                <h3 style="font-size: 50px;">Dodavanje novog predavaca</h3>
+            </span></div>
+        <hr><br>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Odaberite ulogu
+            </button>
+            <br>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            </div><br><br>
+        </div>
+        <div class="form-group">
+            <label>Unesite radni staz predavaca:</label>
+            <input type="number" class="form-control" value="1">
+        </div>
+        <hr><br>
+        <div class="form-group">
+            <label>Unesite platu predavaca: </label>
+            <input type="number" class="form-control" value="1">
+        </div>
+        <div class="form-group"><br>
+            <button type="submit" class="btn btn-primary">Dodaj predavaca</button><br><br><br>
+        </div>
+    </form>
+</div>

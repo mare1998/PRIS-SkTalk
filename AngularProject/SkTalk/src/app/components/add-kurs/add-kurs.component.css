@@ -22,7 +22,7 @@
   }
 
   .rotate {
-    animation: rotation 8s infinite linear;
+    animation: rotation 20s infinite linear;
   }
   
   @keyframes rotation {
@@ -35,7 +35,7 @@
   }
 
   .form-group {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .naslov{
