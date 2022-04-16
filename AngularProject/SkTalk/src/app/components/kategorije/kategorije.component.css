@@ -25,6 +25,21 @@
 	font-weight: 900;
 }
 
+h3{
+	color: var(--text-color);
+	text-align: center; 
+	text-decoration: solid; 
+	font-size: 30px;
+}
+
+h4 {
+	color:var(--text-color);
+	text-align: left; 
+	text-decoration: solid; 
+	font-size: 20px; 
+	font-weight: bold;
+}
+
 .body p {
 	font-weight: 400;
 	font-size: 1.15rem;

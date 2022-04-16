@@ -1,3 +1,3 @@
-export interface Odgovor {
-    odgovor : String 
+export class Odgovor {
+    odgovor : String = "";
 }

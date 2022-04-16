@@ -1,5 +1,5 @@
-export interface Lekcija {
-    tekst: String
-    urlVidea: String 
-    slika: String
+export class Lekcija {
+    tekst: String = "";
+    urlVidea: String = "";
+    slika: String = "";
 }

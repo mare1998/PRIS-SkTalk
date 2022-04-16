@@ -9,6 +9,7 @@ import { AddKursComponent } from './components/add-kurs/add-kurs.component';
 import { AddPredavacComponent } from './components/add-predavac/add-predavac.component';
 import { AddKategorijaComponent } from './components/add-kategorija/add-kategorija.component';
 import { FormsModule } from '@angular/forms';
+import { KursItemComponent } from './components/kurs-item/kurs-item.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     AddKursComponent,
     AddPredavacComponent,
     AddKategorijaComponent,
+    KursItemComponent,
   ],
   imports: [
     BrowserModule,

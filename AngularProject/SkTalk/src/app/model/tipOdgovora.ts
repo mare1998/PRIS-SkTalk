@@ -1,3 +1,4 @@
-export interface TipOdgovora {
-    naziv: String
+export class TipOdgovora {
+    idTip: number = 0;
+    naziv: String = "";
 }

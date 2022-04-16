@@ -1,4 +1,4 @@
-export interface Polaznik {
-    adresa: String 
-    telefon: String 
+export class Polaznik {
+    adresa: String = "";
+    telefon: String = '';
 }

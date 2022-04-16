@@ -1,3 +1,4 @@
-export interface Kategorija {
-    naziv : String 
+export class Kategorija {
+    idKategorija: Number = 0;
+    naziv : String = "";
 }

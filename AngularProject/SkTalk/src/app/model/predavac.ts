@@ -1,4 +1,4 @@
-export interface Predavac {
-    staz : number
-    plata : number
+export class Predavac {
+    staz : number = 0;
+    plata : number = 0;
 }

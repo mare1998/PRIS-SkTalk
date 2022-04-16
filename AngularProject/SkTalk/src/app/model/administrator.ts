@@ -1,3 +1,3 @@
-export interface Administrator {
-    plata: number;
+export class Administrator {
+    plata: number = 0;
 }
