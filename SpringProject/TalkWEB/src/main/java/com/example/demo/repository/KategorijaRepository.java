@@ -9,6 +9,6 @@ import model.Kategorija;
 public interface KategorijaRepository extends JpaRepository<Kategorija, Integer>{
 	
 	@Query("select k from Kategorija k where k.naziv = :naziv")
-	Kategorija findKategorija(@Param("naziv") String naziv);
+	Kategorija findKategorija(@Param("naziv") String nazivKat);
 	
 }
