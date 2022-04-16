@@ -27,6 +27,13 @@
    100%{background-position:0% 50%}
  }
 
+ h3 {
+  font-size: 50px;
+  color: #027833;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
  .form-group {
     font-size: 30px;
   }
+ 
