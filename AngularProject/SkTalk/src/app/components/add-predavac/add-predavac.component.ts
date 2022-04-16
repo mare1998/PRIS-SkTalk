@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PredavacService } from 'src/app/services/predavac.service';
 
 @Component({
   selector: 'app-add-predavac',
@@ -7,13 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPredavacComponent implements OnInit {
 
-  constructor() { }
+  // constructor(private predavacService: PredavacService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  dodavanjePredavaca(predavacForm:any) {
-    
-  }
+ /* dodavanjePredavaca(predavacForm:any) {
+    this.predavacService.dodajPredavaca(predavacForm).subscribe((resp:any)=> {
+      if(resp == true) {
+        alert("Uspesno dodavanje predavaca")
+
+      }
+      else {
+        alert("Greska pri dodavanju predavaca")
+      }
+    })
+  }*/
 
 }

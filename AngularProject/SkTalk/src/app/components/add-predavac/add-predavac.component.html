@@ -1,29 +1,50 @@
 <div class="bg">
-    <form  #predavacForm="ngForm">
+    <form #predavacForm="ngForm">
         <div class="naslov"><span style="background-color: aliceblue;">
                 <h3 style="font-size: 50px;">Dodavanje novog predavaca</h3>
             </span></div>
         <hr><br>
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Odaberite ulogu
-            </button>
-            <br>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            </div><br><br>
-        </div>
+        <div class="row">
+            <div class="col-sm">
         <div class="form-group">
-            <label>Unesite radni staz predavaca:</label>
-            <input type="number" class="form-control" value="1">
-        </div>
-        <hr><br>
+            <label>Ime predavaca:</label>
+            <input type="text" class="form-control" placeholder="Ime predavaca" required ngModel name="ime">
+        </div></div> 
+        <div class="col-sm">
         <div class="form-group">
-            <label>Unesite platu predavaca: </label>
-            <input type="number" class="form-control" value="1">
-        </div>
+            <label>Prezime predavaca:</label>
+            <input type="text" class="form-control" placeholder="Prezime predavaca" required ngModel name="prezime">
+        </div></div>  </div><hr><br>
+        <div class="row">
+            <div class="col-sm">
+        <div class="form-group">
+            <label>Radni staz predavaca:</label>
+            <input type="number" class="form-control" value="1" required ngModel name="radniStaz"> 
+        </div></div>
+            <div class="col-sm">
+        <div class="form-group">
+            <label>Plata predavaca: </label>
+            <input type="number" class="form-control" value="1" required ngModel name="plata">
+        </div></div>
+    </div>
+    <hr><br>
+        <div class="naslov"><span style="background-color: aliceblue;">
+            <h3 style="font-size: 50px;">Kreiranje naloga predavacu</h3>
+        </span></div>
+    <hr><br>
+    <div class="row">
+        <div class="col-sm">
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" class="form-control" placeholder="Username" required ngModel name="username"> 
+        </div></div>
+        <div class="col-sm">
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" placeholder="Password" required ngModel name="password">
+        </div></div></div><hr>
         <div class="form-group"><br>
-            <button type="submit" class="btn btn-primary">Dodaj predavaca</button><br><br><br>
+            <button type="submit" class="btn btn-success">Dodaj predavaca</button><br><br><br>
         </div>
     </form>
 </div>
