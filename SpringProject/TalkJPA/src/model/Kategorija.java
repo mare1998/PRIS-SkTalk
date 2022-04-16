@@ -20,8 +20,6 @@ public class Kategorija implements Serializable {
 
 	private String naziv;
 
-	private String nazivKategorija;
-
 	//bi-directional many-to-one association to Kur
 	@OneToMany(mappedBy="kategorija")
 	private List<Kur> kurs;
@@ -43,14 +41,6 @@ public class Kategorija implements Serializable {
 
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
-	}
-
-	public String getNazivKategorija() {
-		return this.nazivKategorija;
-	}
-
-	public void setNazivKategorija(String nazivKategorija) {
-		this.nazivKategorija = nazivKategorija;
 	}
 
 	public List<Kur> getKurs() {

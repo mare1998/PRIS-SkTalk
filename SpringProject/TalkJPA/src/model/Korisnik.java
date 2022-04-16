@@ -12,13 +12,9 @@ import javax.persistence.*;
 @NamedQuery(name="Korisnik.findAll", query="SELECT k FROM Korisnik k")
 public class Korisnik implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String email;
-
-	private String bio;
-
 	private int idKorisnik;
 
 	private String ime;
@@ -42,22 +38,6 @@ public class Korisnik implements Serializable {
 	private Predavac predavac;
 
 	public Korisnik() {
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getBio() {
-		return this.bio;
-	}
-
-	public void setBio(String bio) {
-		this.bio = bio;
 	}
 
 	public int getIdKorisnik() {
