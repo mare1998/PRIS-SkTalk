@@ -1,7 +1,18 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
@@ -23,11 +34,13 @@ public class Odgovor implements Serializable {
 	//bi-directional one-to-one association to Pitanje
 	@OneToOne
 	@JoinColumn(name="Pitanje_idPitanje")
+	@JsonIgnore
 	private Pitanje pitanje;
 
 	//bi-directional many-to-one association to Tip_odgovora
 	@ManyToOne
 	@JoinColumn(name="Tip_idTip")
+	@JsonIgnore
 	private Tip_odgovora tipOdgovora;
 
 	public Odgovor() {

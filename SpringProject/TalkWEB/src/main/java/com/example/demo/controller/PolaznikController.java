@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.demo.repository.KursRepository;
 import com.example.demo.repository.PredavacRepository;
 
+import model.Korisnik;
 import model.Kur;
-import model.Predavac;
 
 @Controller
 @RequestMapping(value="/polaznik")
@@ -39,7 +39,7 @@ public class PolaznikController {
 
 	@RequestMapping(value="/nadjiPredavaca", method=RequestMethod.GET)
 	@ResponseBody
-	public Predavac nadjiPredavaca(@RequestParam int id) {
-		return predavacRepo.getById(id);
+	public Korisnik nadjiPredavaca(@RequestParam int id) {
+		return predavacRepo.getById(id).getKorisnik();
 	}
 }
