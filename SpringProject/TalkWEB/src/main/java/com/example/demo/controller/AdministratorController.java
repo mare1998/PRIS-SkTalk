@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.repository.KategorijaRepository;
 import com.example.demo.repository.KorisnikRepository;
@@ -26,6 +27,7 @@ public class AdministratorController {
 	KorisnikRepository korisnikRepo;
 	
 	@RequestMapping(value = "/dodajKategoriju", method = RequestMethod.POST)
+	@ResponseBody
 	public boolean dodajKategoriju(@RequestParam String naziv) {
 		Kategorija kategorija = kategorijaRepo.findKategorija(naziv);
 		if(kategorija == null) {
@@ -39,5 +41,5 @@ public class AdministratorController {
 		return false;
 	}
 	
-
+	
 }
