@@ -1,8 +1,21 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
@@ -30,28 +43,35 @@ public class Kur implements Serializable {
 
 	//bi-directional many-to-one association to Komentar
 	@OneToMany(mappedBy="kur")
+	@JsonIgnore
 	private List<Komentar> komentars;
 
 	//bi-directional many-to-one association to Kategorija
 	@ManyToOne
 	@JoinColumn(name="Kategorija_idKategorija")
+	@JsonIgnore
 	private Kategorija kategorija;
 
 	//bi-directional many-to-one association to Predavac
 	@ManyToOne
-	@JoinColumn(name="Predavac_idPredavac")
+	
+	@JoinColumn(name="Predavac_Korisnik_idKorisnik")
+	@JsonIgnore
 	private Predavac predavac;
 
 	//bi-directional many-to-many association to Polaznik
 	@ManyToMany(mappedBy="kurs")
+	@JsonIgnore
 	private List<Polaznik> polazniks;
 
 	//bi-directional many-to-one association to Lekcija
 	@OneToMany(mappedBy="kur")
+	@JsonIgnore
 	private List<Lekcija> lekcijas;
 
 	//bi-directional many-to-one association to Test
 	@OneToMany(mappedBy="kur")
+	@JsonIgnore
 	private List<Test> tests;
 
 	public Kur() {

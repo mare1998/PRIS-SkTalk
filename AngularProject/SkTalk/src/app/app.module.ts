@@ -10,6 +10,7 @@ import { AddPredavacComponent } from './components/add-predavac/add-predavac.com
 import { AddKategorijaComponent } from './components/add-kategorija/add-kategorija.component';
 import { FormsModule } from '@angular/forms';
 import { KursItemComponent } from './components/kurs-item/kurs-item.component';
+import { KursViewComponent } from './components/kurs-view/kurs-view.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { KursItemComponent } from './components/kurs-item/kurs-item.component';
     AddPredavacComponent,
     AddKategorijaComponent,
     KursItemComponent,
+    KursViewComponent,
   ],
   imports: [
     BrowserModule,

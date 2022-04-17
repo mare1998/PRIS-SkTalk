@@ -1,8 +1,21 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
@@ -25,6 +38,7 @@ public class Polaznik implements Serializable {
 
 	//bi-directional many-to-one association to Komentar
 	@OneToMany(mappedBy="polaznik")
+	@JsonIgnore
 	private List<Komentar> komentars;
 
 	//bi-directional many-to-many association to Kur
@@ -38,15 +52,18 @@ public class Polaznik implements Serializable {
 			@JoinColumn(name="Kurs_idKurs")
 			}
 		)
+	@JsonIgnore
 	private List<Kur> kurs;
 
 	//bi-directional one-to-one association to Korisnik
 	@OneToOne
 	@JoinColumn(name="Korisnik_idKorisnik")
+	@JsonIgnore
 	private Korisnik korisnik;
 
 	//bi-directional many-to-one association to Polaznik_has_Test
 	@OneToMany(mappedBy="polaznik")
+	@JsonIgnore
 	private List<Polaznik_has_Test> polaznikHasTests;
 
 	public Polaznik() {

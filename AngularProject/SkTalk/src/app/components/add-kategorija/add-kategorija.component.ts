@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Kategorija } from 'src/app/model/kategorija';
 
 @Component({
   selector: 'app-add-kategorija',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddKategorijaComponent implements OnInit {
 
+  private sveKategorije: Kategorija[] | undefined
   constructor() { }
 
   ngOnInit(): void {
