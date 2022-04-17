@@ -17,6 +17,8 @@ export class KursItemComponent implements OnInit {
   lecturer: Korisnik = new Korisnik()
   @Input() izabraniKurs: Kurs
 
+  
+
   constructor(/*private kursService: KursService*/) { }
 
   ngOnInit(): void {
