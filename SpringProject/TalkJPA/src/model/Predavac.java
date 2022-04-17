@@ -1,8 +1,19 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
@@ -25,23 +36,18 @@ public class Predavac implements Serializable {
 
 	//bi-directional many-to-one association to Kur
 	@OneToMany(mappedBy="predavac")
+	@JsonIgnore
 	private List<Kur> kurs;
 
 	//bi-directional one-to-one association to Korisnik
 	@OneToOne
 	@JoinColumn(name="Korisnik_idKorisnik")
+	@JsonIgnore
 	private Korisnik korisnik;
 
 	public Predavac() {
 	}
 
-	public int getKorisnik_idKorisnik() {
-		return this.korisnik_idKorisnik;
-	}
-
-	public void setKorisnik_idKorisnik(int korisnik_idKorisnik) {
-		this.korisnik_idKorisnik = korisnik_idKorisnik;
-	}
 
 	public int getPlata() {
 		return this.plata;

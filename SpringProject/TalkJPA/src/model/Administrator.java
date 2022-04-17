@@ -1,7 +1,17 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
@@ -23,13 +33,14 @@ public class Administrator implements Serializable {
 	//bi-directional one-to-one association to Korisnik
 	@OneToOne
 	@JoinColumn(name="Korisnik_idKorisnik")
+	@JsonIgnore
 	private Korisnik korisnik;
 
 	public Administrator() {
 	}
-
+	
 	public int getKorisnik_idKorisnik() {
-		return this.korisnik_idKorisnik;
+		return korisnik_idKorisnik;
 	}
 
 	public void setKorisnik_idKorisnik(int korisnik_idKorisnik) {

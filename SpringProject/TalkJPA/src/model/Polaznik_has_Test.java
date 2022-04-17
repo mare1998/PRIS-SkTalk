@@ -1,8 +1,18 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
@@ -19,19 +29,22 @@ public class Polaznik_has_Test implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="datum_polaganja")
+	@JsonIgnore
 	private Date datumPolaganja;
 
 	@Column(name="osvojeni_poeni")
 	private double osvojeniPoeni;
 
-	//bi-directional many-to-one association to Polaznik
+	//bi-directional many-to-one association to Test
 	@ManyToOne
-	@JoinColumn(name="Polaznik_Korisnik_idKorisnik")
+	@JoinColumn(name="Polaznik_Korisnik_idKorisnik", referencedColumnName = "Korisnik_idKorisnik", insertable = false, updatable = false)
+	@JsonIgnore
 	private Polaznik polaznik;
 
 	//bi-directional many-to-one association to Test
 	@ManyToOne
-	@JoinColumn(name="Test_idTest")
+	@JoinColumn(name="Test_idTest", referencedColumnName = "idTest", insertable = false, updatable = false)
+	@JsonIgnore
 	private Test test;
 
 	public Polaznik_has_Test() {
