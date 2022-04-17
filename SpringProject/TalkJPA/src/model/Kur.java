@@ -39,7 +39,7 @@ public class Kur implements Serializable {
 
 	//bi-directional many-to-one association to Predavac
 	@ManyToOne
-	@JoinColumn(name="Predavac_Korisnik_idKorisnik")
+	@JoinColumn(name="Predavac_idPredavac")
 	private Predavac predavac;
 
 	//bi-directional many-to-many association to Polaznik

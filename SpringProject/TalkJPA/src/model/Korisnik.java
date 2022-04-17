@@ -25,17 +25,17 @@ public class Korisnik implements Serializable {
 
 	private String username;
 
-	//bi-directional one-to-one association to Administrator
-	@OneToOne(mappedBy="korisnik")
-	private Administrator administrator;
-
-	//bi-directional one-to-one association to Polaznik
-	@OneToOne(mappedBy="korisnik")
-	private Polaznik polaznik;
-
-	//bi-directional one-to-one association to Predavac
-	@OneToOne(mappedBy="korisnik")
-	private Predavac predavac;
+//	//bi-directional one-to-one association to Administrator
+//	@OneToOne(mappedBy="korisnik")
+//	private Administrator administrator;
+//
+//	//bi-directional one-to-one association to Polaznik
+//	@OneToOne(mappedBy="korisnik")
+//	private Polaznik polaznik;
+//
+//	//bi-directional one-to-one association to Predavac
+//	@OneToOne(mappedBy="korisnik")
+//	private Predavac predavac;
 
 	public Korisnik() {
 	}
@@ -79,29 +79,29 @@ public class Korisnik implements Serializable {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-	public Administrator getAdministrator() {
-		return this.administrator;
-	}
-
-	public void setAdministrator(Administrator administrator) {
-		this.administrator = administrator;
-	}
-
-	public Polaznik getPolaznik() {
-		return this.polaznik;
-	}
-
-	public void setPolaznik(Polaznik polaznik) {
-		this.polaznik = polaznik;
-	}
-
-	public Predavac getPredavac() {
-		return this.predavac;
-	}
-
-	public void setPredavac(Predavac predavac) {
-		this.predavac = predavac;
-	}
+//
+//	public Administrator getAdministrator() {
+//		return this.administrator;
+//	}
+//
+//	public void setAdministrator(Administrator administrator) {
+//		this.administrator = administrator;
+//	}
+//
+//	public Polaznik getPolaznik() {
+//		return this.polaznik;
+//	}
+//
+//	public void setPolaznik(Polaznik polaznik) {
+//		this.polaznik = polaznik;
+//	}
+//
+//	public Predavac getPredavac() {
+//		return this.predavac;
+//	}
+//
+//	public void setPredavac(Predavac predavac) {
+//		this.predavac = predavac;
+//	}
 
 }

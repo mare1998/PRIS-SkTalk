@@ -27,9 +27,9 @@ public class Administrator implements Serializable {
 
 	public Administrator() {
 	}
-
+	
 	public int getKorisnik_idKorisnik() {
-		return this.korisnik_idKorisnik;
+		return korisnik_idKorisnik;
 	}
 
 	public void setKorisnik_idKorisnik(int korisnik_idKorisnik) {

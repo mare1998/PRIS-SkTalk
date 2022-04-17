@@ -25,13 +25,13 @@ public class Polaznik_has_Test implements Serializable {
 	private double osvojeniPoeni;
 
 	//bi-directional many-to-one association to Polaznik
-	@ManyToOne
-	@JoinColumn(name="Polaznik_Korisnik_idKorisnik")
+	@ManyToOne(optional=false)
+	@JoinColumn(name="Polaznik_Korisnik_idKorisnik",referencedColumnName="Korisnik_idKorisnik", insertable=false, updatable=false)
 	private Polaznik polaznik;
 
 	//bi-directional many-to-one association to Test
-	@ManyToOne
-	@JoinColumn(name="Test_idTest")
+	@ManyToOne(optional=false)
+	@JoinColumn(name="Test_idTest",referencedColumnName="idTest", insertable=false, updatable=false)
 	private Test test;
 
 	public Polaznik_has_Test() {

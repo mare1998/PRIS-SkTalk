@@ -52,14 +52,6 @@ public class Polaznik implements Serializable {
 	public Polaznik() {
 	}
 
-	public int getKorisnik_idKorisnik() {
-		return this.korisnik_idKorisnik;
-	}
-
-	public void setKorisnik_idKorisnik(int korisnik_idKorisnik) {
-		this.korisnik_idKorisnik = korisnik_idKorisnik;
-	}
-
 	public String getAdresa() {
 		return this.adresa;
 	}

@@ -11,6 +11,8 @@ import com.example.demo.repository.KorisnikRepository;
 import com.example.demo.repository.PredavacRepository;
 
 import model.Kategorija;
+import model.Korisnik;
+import model.Predavac;
 
 @Controller
 @RequestMapping(value="/administrator")
@@ -37,6 +39,35 @@ public class AdministratorController {
 			}
 		}
 		return false;
+	}
+	
+	@RequestMapping(value="/dodajPredavaca", method= RequestMethod.POST)
+	public boolean dodajPredavaca(@RequestParam String ime, @RequestParam String prezime, @RequestParam String username, @RequestParam String password, @RequestParam int staz, @RequestParam int plata) {
+		Korisnik korisnik1 = korisnikRepo.findByUsername(username);
+		if(korisnik1 == null) {
+			Korisnik korisnik2 = new Korisnik();
+			korisnik2.setIme(ime);
+			korisnik2.setPrezime(prezime);
+			korisnik2.setUsername(username);
+			korisnik2.setPassword(password);
+			korisnik2 = korisnikRepo.save(korisnik2);
+			if(korisnik2 == null) {
+				return false;
+			}
+			
+			Predavac predavac = new Predavac();
+			predavac.setKorisnik(korisnik2);
+			predavac.setPlata(plata);
+			predavac.setStaz(staz);
+			predavac = predavacRepo.save(predavac);
+			if(predavac == null) {
+				return false;
+			}
+			
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 
