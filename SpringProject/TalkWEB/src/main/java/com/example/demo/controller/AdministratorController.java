@@ -37,7 +37,7 @@ public class AdministratorController {
 	
 	@RequestMapping(value = "/dodajKategoriju", method = RequestMethod.POST)
 	@ResponseBody
-	public boolean dodajKategoriju(@RequestParam String naziv) {
+	public boolean dodajKategoriju(@RequestParam("naziv") String naziv) {
 		Kategorija kategorija = kategorijaRepo.findKategorija(naziv);
 		if(kategorija == null) {
 			Kategorija k = new Kategorija();
