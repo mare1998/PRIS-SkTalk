@@ -33,13 +33,13 @@ public class PolaznikController {
 	
 	@RequestMapping(value="/prikazKursa", method=RequestMethod.GET)
 	@ResponseBody
-	public Kur prikazKursa(@RequestParam int id) {
+	public Kur prikazKursa(@RequestParam("idKursa") int id) {
 		return kursRepo.getById(id);
 	}
 
-	@RequestMapping(value="/nadjiPredavaca", method=RequestMethod.GET)
+	@RequestMapping(value="/pronadjiPredavaca", method=RequestMethod.GET)
 	@ResponseBody
-	public Korisnik nadjiPredavaca(@RequestParam int id) {
+	public Korisnik pronadjiPredavaca(@RequestParam("idPredavaca") int id) {
 		return predavacRepo.getById(id).getKorisnik();
 	}
 }

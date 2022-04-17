@@ -51,7 +51,7 @@ public class AdministratorController {
 	}
 	
 	@RequestMapping(value="/dodajPredavaca", method= RequestMethod.POST)
-	public boolean dodajPredavaca(@RequestParam String ime, @RequestParam String prezime, @RequestParam String username, @RequestParam String password, @RequestParam int staz, @RequestParam int plata) {
+	public boolean dodajPredavaca(@RequestParam("ime") String ime, @RequestParam("prezime") String prezime, @RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("staz") int staz, @RequestParam("plata") int plata) {
 		Korisnik korisnik1 = korisnikRepo.findByUsername(username);
 		if(korisnik1 == null) {
 			Korisnik korisnik2 = new Korisnik();
@@ -80,7 +80,7 @@ public class AdministratorController {
 
 	@RequestMapping(value = "/dodajKurs", method = RequestMethod.POST)
 	@ResponseBody
-	public boolean dodajKurs(@RequestParam String naziv, @RequestParam String opis, @RequestParam String ocekivaniIshod, @RequestParam int idKategorije, @RequestParam int idPredavaca) {
+	public boolean dodajKurs(@RequestParam("naziv") String naziv, @RequestParam("opis") String opis, @RequestParam("ocekivaniIshod") String ocekivaniIshod, @RequestParam("idKategorije") int idKategorije, @RequestParam("idPredavaca") int idPredavaca) {
 		Kur k = new Kur();
 		k.setNaziv(naziv);
 		k.setOpis(opis);
@@ -94,15 +94,15 @@ public class AdministratorController {
 		return false;
 	}
 	
-	@RequestMapping(value = "/vratiPredavace", method = RequestMethod.GET)
+	@RequestMapping(value = "/sviPredavaci", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Korisnik> vratiPredavace() {
+	public List<Korisnik> sviPredavaci() {
 		return korisnikRepo.findPredavace();
 	}
 	
-	@RequestMapping(value = "/vratiKategorije", method = RequestMethod.GET)
+	@RequestMapping(value = "/sveKategorije", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Kategorija> vratiKategorije() {
+	public List<Kategorija> sveKategorije() {
 		return kategorijaRepo.findAll();
 	}
 }
