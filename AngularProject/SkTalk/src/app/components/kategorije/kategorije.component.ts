@@ -22,21 +22,31 @@ export class KategorijeComponent implements OnInit {
   public trazeniKurs: Kurs | undefined
   private reloadKategorijasList: Subject<any> = new Subject();
 
-  constructor(/*private kategorijaService: KategorijaService, private knjigaService: KursService, private router:Router*/) { }
+  constructor(/*private kategorijaService: KategorijaService, private kursService: KursService, private router:Router*/) { }
 
   ngOnInit(): void {
+    // this.kategorijaService.getKategorije().subscribe((resp:any) => {
+    //   this.kategorije = resp
+    // })
+    // this.kursService.getKursevi().subscribe((resp:any)=> {
+    //   this.kursevi = resp,
+    //   this.trazeniKurs = undefined;
+    // })
   }
 
   onCreate(){
     this.reloadKategorijasList.next();
   }
 
-  kurseviZaKategoriju(idKategorija:number){
-
-  }
-
   nadjiKurs(searchForm:any){
-
+    // this.kursService.nadjiKurs(searchForm.value.nazivKnjige).subscribe((resp:any) => {
+    //   if (resp == null) {
+    //     alert("Nema knjige sa prosledjenim nazivom!");
+    //     window.location.href = "http://localhost:4200/svi-kursevi"
+    //   } else {
+    //     const naziv = searchForm.value.nazivKnjige;
+    //     this.router.navigate(["/prikaz-kursa/"+naziv])
+    //   }
+    // })
   }
-
 }
