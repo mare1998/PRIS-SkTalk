@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Kategorija } from 'src/app/model/kategorija';
+import { Korisnik } from 'src/app/model/korisnik';
 import { Predavac } from 'src/app/model/predavac';
 import { KursService } from 'src/app/services/kurs.service';
 
@@ -12,10 +13,10 @@ import { KursService } from 'src/app/services/kurs.service';
 export class AddKursComponent implements OnInit {
 
   public kategorije: Kategorija[]
-  public predavaci: Predavac[]
+  public predavaci: Korisnik[]
 
-  public selectedKategorija: string
-  public selectedPredavac: string
+  public idKategorije: string
+  public idPredavaca: string
 
   constructor(private kursService: KursService, private router: Router) { }
   
