@@ -17,21 +17,21 @@ export class AddKursComponent implements OnInit {
   public selectedKategorija: string
   public selectedPredavac: string
 
-  constructor() { }
-  // private kursService: KursService, private router: Router
+  constructor(private kursService: KursService, private router: Router) { }
+  
   ngOnInit(): void {
   }
 
-  // dodajNoviKurs(kursForm: any) {
-  //   this.kursService.dodajNoviKurs(kursForm).subscribe((resp: any) => {
-  //     if (resp == true) {
-  //       alert("Uspesno dodavanje")
-  //       window.location.href = "http://localhost:4200/dodaj-kurs"
-  //     }
-  //     else {
-  //       alert("Neuspesno dodavanje kursa!")
-  //     }
-  //   })
-  // }
+  dodajNoviKurs(kursForm: any) {
+    this.kursService.dodajNoviKurs(kursForm).subscribe((resp: any) => {
+      if (resp == true) {
+        alert("Uspesno dodavanje")
+        window.location.href = "http://localhost:4200/dodaj-kurs"
+      }
+      else {
+        alert("Neuspesno dodavanje kursa!")
+      }
+    })
+  }
 
 }

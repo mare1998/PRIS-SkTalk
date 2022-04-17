@@ -1,8 +1,7 @@
-<!-- (ngSubmit)="dodajNoviKurs(kursForm)" -->
 <div class="bg">
   <div class="row">
     <div class="col-sm">
-      <form style="padding-left: 50px; padding-right: 50px"  #kursForm="ngForm">
+      <form style="padding-left: 50px; padding-right: 50px"  #kursForm="ngForm" (ngSubmit)="dodajNoviKurs(kursForm)">
 
         <div class="naslov"><span style="background-color: aliceblue;">
             <h3>Dodavanje novog kursa</h3>
@@ -49,21 +48,17 @@
           <div class="dropdown">
             <div class="row">
               <div class="col-sm">
-                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Odaberite kategoriju za novi kurs
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                </div>
-              </div>
-              <div class="col-sm">
-                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Odaberite predavaca za novi kurs
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                </div>
-              </div>
+                <div>
+                  <select class="select-red" ngModel name="idKategorije">
+                      <option value="" selected disabled style="color: white;">Odaberite kategoriju</option>
+                      <option *ngFor="let kat of kategorije" value="{{kat.idKategorija}}">{{kat.naziv}}</option>
+                  </select></div></div>
+                  <div class="col-sm">
+                    <div>
+                      <select class="select-red" ngModel name="idPredavaca">
+                          <option value="" selected disabled style="color: white;">Odaberite predavaca</option>
+                          <option *ngFor="let p of predavaci" value="{{p.idPredavac}}">{{p.ime}}{{p.prezime}}</option>
+                      </select></div></div>
             </div>
           </div><br>
           <label>Naziv novog kursa:</label>
