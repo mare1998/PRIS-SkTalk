@@ -1,29 +1,4 @@
-.body {
-	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 1000px;
-	text-align: center;
-	padding: 100px 50px 50px;
-	background-color: var(--body-back);
-	min-height: 100vh;
-	opacity: 0.8;
-	
-	
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
 
-.body h2 {
-	margin-top: 60px;
-	color: rgb(134, 32, 32);
-}
-
-.body h1 {
-	color:var(--butn-blue);
-	font-weight: 900;
-}
 
 h3{
 	color: var(--text-color);
