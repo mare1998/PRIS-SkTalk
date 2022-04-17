@@ -62,8 +62,7 @@ public class AdministratorController {
 			korisnik2 = korisnikRepo.save(korisnik2);
 			if(korisnik2 == null) {
 				return false;
-			}
-			
+			}	
 			Predavac predavac = new Predavac();
 			predavac.setKorisnik(korisnik2);
 			predavac.setPlata(plata);
@@ -71,8 +70,7 @@ public class AdministratorController {
 			predavac = predavacRepo.save(predavac);
 			if(predavac == null) {
 				return false;
-			}
-			
+			}		
 			return true;
 		}else {
 			return false;
