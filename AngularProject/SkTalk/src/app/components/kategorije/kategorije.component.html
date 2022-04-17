@@ -1,15 +1,25 @@
 <div class="bg">
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Pretrazi kurs" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0" type="submit">Pretrazi kurs</button>
-      </form><br><br>
-      <div *ngIf="trazeniKurs != undefined">
-        <app-knjiga-item [kurs]='trazeniKurs'></app-knjiga-item>
-    </div><hr><hr>
-    <div>
+  <form class="form-inline my-2 my-lg-0">
+    <input
+      class="form-control mr-sm-2"
+      type="search"
+      placeholder="Pretrazi kurs"
+      aria-label="Search"
+    />
+    <button class="btn btn-success my-2 my-sm-0" type="submit">
+      Pretrazi kurs
+    </button>
+  </form>
+  <br /><br />
+  <div *ngIf="trazeniKurs != undefined">
+    <app-knjiga-item [kurs]="trazeniKurs"></app-knjiga-item>
+  </div>
+  <hr />
+  <hr />
+  <!-- <div>
         <app-kurs-item></app-kurs-item>
-    </div>
-    <!--<div *ngIf="kursevi != undefined">
-        <app-kurs-item [kurs]='kurs' *ngFor="let kursevi of kurs"></app-kurs-item> 
-    </div>-->
+    </div> -->
+  <div *ngIf="kursevi != undefined">
+    <app-kurs-item [kurs]="kurs" *ngFor="let kursevi of kurs"></app-kurs-item>
+  </div>
 </div>

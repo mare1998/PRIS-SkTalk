@@ -1,41 +1,53 @@
 <div class="bg">
-    <form #kategorijaForm="ngForm">
-        <div class="naslov">
-            <span style="background-color: aliceblue;">
-                <h3>Dodavanje nove kategorije</h3>
-            </span>
-        </div>
-        <hr><br>
-        <div class="row">
-            <div class="col-sm">
-              <div class="form-group">
-                <label>Naziv kategorije:</label>
-                <input type="text" class="form-control" placeholder="Unesite naziv" required ngModel name="nazivKat">
-              </div>
-            </div>
-            <div class="col-sm">
-              <div class="form-group"><br>
-                <button style="margin-top: 6px;"type="submit" class="btn btn-success">Dodaj novu kategoriju</button>
-              </div>
-              </div>
-    </div><hr><br>
-    </form>
+  <form #kategorijaForm="ngForm" (ngSubmit)="dodajKategorija(kategorijaForm)">
     <div class="naslov">
-        <span style="background-color: aliceblue;">
-            <h3>Prikaz postojecih kategorija</h3>
-        </span>
-    </div><hr><br>
-  <!--  <div *ngIf="sveKategorije != undefined" >-->
-      <div>
-        <table class="table-basic table-green">
-            <tr>
-                <th>Naziv kategorije</th>
-            </tr>
-            <tr>
-            <!--<tr *ngFor="let kat of sveKategorije" >-->
-                <td>Kat</td>
-            </tr>
-        </table>		
+      <span style="background-color: aliceblue">
+        <h3>Dodavanje nove kategorije</h3>
+      </span>
     </div>
+    <hr />
+    <br />
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
+          <label>Naziv kategorije:</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Unesite naziv"
+            required
+            ngModel
+            name="nazivKat"
+          />
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="form-group">
+          <br />
+          <button style="margin-top: 6px" type="submit" class="btn btn-success">
+            Dodaj novu kategoriju
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <br />
+  </form>
+  <div class="naslov">
+    <span style="background-color: aliceblue">
+      <h3>Prikaz postojecih kategorija</h3>
+    </span>
+  </div>
+  <hr />
+  <br />
+  <div *ngIf="sveKategorije != undefined">
+    <table class="table-basic table-green">
+      <tr>
+        <th>Naziv kategorije</th>
+      </tr>
+      <tr *ngFor="let kat of sveKategorije">
+        <td>{{ kat.naziv }}</td>
+      </tr>
+    </table>
+  </div>
 </div>
-

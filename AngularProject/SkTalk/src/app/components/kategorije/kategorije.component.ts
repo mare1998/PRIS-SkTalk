@@ -9,36 +9,37 @@ import { KursService } from 'src/app/services/kurs.service';
 @Component({
   selector: 'app-kategorije',
   templateUrl: './kategorije.component.html',
-  styleUrls: ['./kategorije.component.css']
+  styleUrls: ['./kategorije.component.css'],
 })
 export class KategorijeComponent implements OnInit {
+  public kategorije: Kategorija[] | undefined;
 
-  
-  public kategorije: Kategorija[] | undefined
+  public kursevi: Kurs[] | undefined;
 
-  public kursevi: Kurs[] | undefined
-
-  public selectedKat: Kategorija = new Kategorija()
-  public trazeniKurs: Kurs | undefined
+  public selectedKat: Kategorija = new Kategorija();
+  public trazeniKurs: Kurs | undefined;
   private reloadKategorijasList: Subject<any> = new Subject();
 
-  constructor(/*private kategorijaService: KategorijaService, private kursService: KursService, private router:Router*/) { }
+  constructor(
+    private kategorijaService: KategorijaService,
+    private kursService: KursService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    // this.kategorijaService.getKategorije().subscribe((resp:any) => {
-    //   this.kategorije = resp
-    // })
-    // this.kursService.getKursevi().subscribe((resp:any)=> {
-    //   this.kursevi = resp,
-    //   this.trazeniKurs = undefined;
-    // })
+    this.kategorijaService.getKategorije().subscribe((resp: any) => {
+      this.kategorije = resp;
+    });
+    this.kursService.getKursevi().subscribe((resp: any) => {
+      (this.kursevi = resp), (this.trazeniKurs = undefined);
+    });
   }
 
-  onCreate(){
+  onCreate() {
     this.reloadKategorijasList.next();
   }
 
-  nadjiKurs(searchForm:any){
+  nadjiKurs(searchForm: any) {
     // this.kursService.nadjiKurs(searchForm.value.nazivKnjige).subscribe((resp:any) => {
     //   if (resp == null) {
     //     alert("Nema knjige sa prosledjenim nazivom!");

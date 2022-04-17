@@ -11,7 +11,7 @@ import { AddKategorijaComponent } from './components/add-kategorija/add-kategori
 import { FormsModule } from '@angular/forms';
 import { KursItemComponent } from './components/kurs-item/kurs-item.component';
 import { KursViewComponent } from './components/kurs-view/kurs-view.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,12 +24,8 @@ import { KursViewComponent } from './components/kurs-view/kurs-view.component';
     KursItemComponent,
     KursViewComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
