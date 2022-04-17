@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Kategorija } from 'src/app/model/kategorija';
 import { Kurs } from 'src/app/model/kurs';
-import { Predavac } from 'src/app/model/predavac';
+import {Korisnik} from 'src/app/model/korisnik';
 import { KursService } from 'src/app/services/kurs.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-kurs-item',
@@ -13,7 +14,7 @@ export class KursItemComponent implements OnInit {
 
   @Input()course: Kurs = new Kurs()
   kategorija: Kategorija = new Kategorija()
-  lecturer: Predavac = new Predavac()
+  lecturer: Korisnik = new Korisnik()
   @Input() izabraniKurs: Kurs
 
   constructor(/*private kursService: KursService*/) { }

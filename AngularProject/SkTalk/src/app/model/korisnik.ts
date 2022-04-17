@@ -1,6 +1,7 @@
-export class Korinik {
-    username: String = "";
-    password : String = "";
-    ime: String  = "";
-    prezime: String = "";
+export class Korisnik {
+    idKorisnik: number = 0;
+    username: string = "";
+    password : string = "";
+    ime: string  = "";
+    prezime: string = "";
 }

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Kurs } from '../model/kurs';
 import { map } from 'rxjs/operators'
-import { Predavac } from '../model/predavac';
+import { Korisnik } from '../model/korisnik';
 import { Kategorija } from '../model/kategorija';
 
 @Injectable({
@@ -23,8 +23,8 @@ private BACKEND_BASE="http://localhost:8080/"
     return this.httpClient.get<Kurs>(this.BACKEND_BASE+'polaznik/kurs-po-imenu/'+nazivKursa);
   }
 
-  getPredavac(idKurs: number):Observable<Predavac>{
-    return this.httpClient.get<Predavac>(this.BACKEND_BASE+'polaznik/predavac-za-kurs/'+idKurs)
+  getPredavac(idKurs: number):Observable<Korisnik>{
+    return this.httpClient.get<Korisnik>(this.BACKEND_BASE+'polaznik/predavac-za-kurs/'+idKurs)
   }
 
   getKategorijaKursa(idKurs: number): Observable<Kategorija>{
