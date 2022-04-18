@@ -40,14 +40,14 @@ export class KategorijeComponent implements OnInit {
   }
 
   nadjiKurs(searchForm: any) {
-    // this.kursService.nadjiKurs(searchForm.value.nazivKnjige).subscribe((resp:any) => {
-    //   if (resp == null) {
-    //     alert("Nema knjige sa prosledjenim nazivom!");
-    //     window.location.href = "http://localhost:4200/svi-kursevi"
-    //   } else {
-    //     const naziv = searchForm.value.nazivKnjige;
-    //     this.router.navigate(["/prikaz-kursa/"+naziv])
-    //   }
-    // })
+    this.kursService.nadjiKurs(searchForm.value.nazivKnjige).subscribe((resp:any) => {
+      if (resp == null) {
+        alert("Nema knjige sa prosledjenim nazivom!");
+        window.location.href = "http://localhost:4200/svi-kursevi"
+      } else {
+        const naziv = searchForm.value.nazivKnjige;
+        this.router.navigate(["/prikaz-kursa/"+naziv])
+      }
+    })
   }
 }

@@ -32,7 +32,7 @@ export class KursService {
 
   getPredavac(idKurs: number): Observable<Korisnik> {
     return this.httpClient.get<Korisnik>(
-      this.BACKEND_BASE + 'polaznik/predavac-za-kurs/' + idKurs
+      this.BACKEND_BASE + 'polaznik/pronadjiPredavaca/' + idKurs
     );
   }
 

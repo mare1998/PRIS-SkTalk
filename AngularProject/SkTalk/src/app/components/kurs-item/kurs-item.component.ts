@@ -19,15 +19,18 @@ export class KursItemComponent implements OnInit {
 
   
 
-  constructor(/*private kursService: KursService*/) { }
+  constructor(private kursService: KursService) { }
 
   ngOnInit(): void {
-    // this.kursService.getKategorijaKursa(this.course.idKurs).subscribe((resp:any) =>{
-    //   this.kategorija = resp;
-    // })
-    // this.kursService.getPredavac(this.course.idKurs).subscribe((resp:any) => {
-    //   this.lecturer = resp
-    // })
+    this.kursService.getKategorijaKursa(this.course.idKurs).subscribe((resp:any) =>{
+      this.kategorija = resp;
+    })
+    this.kursService.getPredavac(this.course.idKurs).subscribe((resp:any) => {
+      this.lecturer = resp
+    })
+    this.kursService.getKategorijaKursa(this.course.idKurs).subscribe((resp:any) => {
+      this.kategorija = resp
+    })
   }
 
   prikazKursa(naziv:String){
@@ -35,15 +38,14 @@ export class KursItemComponent implements OnInit {
     //   alert('Niste prijavljeni, ne možete pristupiti ovome!')
     // }
     // else {
-    //   this.kursService.nadjiKurs(naziv).subscribe((resp:any) => {
-    //     this.izabraniKurs = resp;
-    //   })
-    //   this.kursService.getPredavac(this.izabraniKurs.idKurs).subscribe((resp: any) =>
-    //   {
-    //     this.lecturer = resp;
-    //   })
-    //   window.location.href = "http://localhost:4200/svi-kursevi" //reload stranice
-    // }
-  }
+      this.kursService.nadjiKurs(naziv).subscribe((resp:any) => {
+        this.izabraniKurs = resp;
+      })
+      this.kursService.getPredavac(this.izabraniKurs.idKurs).subscribe((resp: any) =>
+      {
+        this.lecturer = resp;
+      })
+      window.location.href = "http://localhost:4200/svi-kursevi" //reload stranice
+    }
 
 }
