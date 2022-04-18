@@ -13,4 +13,6 @@ public interface KorisnikRepository extends JpaRepository<Korisnik, Integer>{
 
 	@Query("SELECT k FROM Korisnik k INNER JOIN Predavac p ON k.idKorisnik = p.korisnik_idKorisnik")
 	List<Korisnik> findPredavace();
+	
+	
 }

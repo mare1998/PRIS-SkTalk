@@ -48,7 +48,8 @@ export class KursService {
       .set('opis', kursForm.value.opis)
       .set('ocekivaniIshod', kursForm.value.ocekivaniIshod)
       .set('idKategorije', kursForm.value.idKategorije)
-      .set('idPredavaca', kursForm.value.idPredavaca);
+      .set('idPredavaca', kursForm.value.idPredavaca)
+      .set('cena', kursForm.value.cena);
 
     return this.httpClient.post(
       this.BACKEND_BASE + 'administrator/dodajKurs',

@@ -1,21 +1,24 @@
 <div class="body">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4" style="text-align: left;">
-                <h2><b>{{izabraniKurs.naziv}}</b></h2>
-                <h3>Jezik: {{kategorija.naziv}}</h3>            
-                <h4>Predavac: {{predavac.ime}} {{predavac.prezime}}</h4>
-                <h4>Cena: {{izabraniKurs.cena}}</h4>
-                <p>Opis: {{izabraniKurs.opis}}</p><br>
-                <p>Ocekivani ishod: {{izabraniKurs.ocekivaniIshod}}</p>
-            </div>
-            <div class="col-md-4">
-                <div class="flier"><img class="flier" ng-src="slika" height="200" width="200"></div>
-            </div>
-        </div>
-    </div>
+  <div class="container-fluid">
     <div class="row">
-        <p>Opis: {{izabraniKurs.opis}}</p><br>
-        <p>Ocekivani ishod: {{izabraniKurs.ocekivaniIshod}}</p>
+      <div class="col-md-4" style="text-align: left">
+        <h2>
+          <b>{{ izabraniKurs.naziv }}</b>
+        </h2>
+        <h3>Jezik: {{ kategorija.naziv }}</h3>
+        <h4>Predavac: {{ predavac.ime }} {{ predavac.prezime }}</h4>
+        <h4>Cena: {{ izabraniKurs.cena }}</h4>
+      </div>
+      <div class="col-md-4">
+        <div class="flier">
+          <img class="flier" [src]="slika" height="200" width="200" />
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="row">
+    <p>Opis: {{ izabraniKurs.opis }}</p>
+    <br />
+    <p>Ocekivani ishod: {{ izabraniKurs.ocekivaniIshod }}</p>
+  </div>
 </div>

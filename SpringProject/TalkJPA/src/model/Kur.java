@@ -32,7 +32,7 @@ public class Kur implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idKurs;
 
-	private String cena;
+	private int cena;
 
 	private String naziv;
 
@@ -85,11 +85,11 @@ public class Kur implements Serializable {
 		this.idKurs = idKurs;
 	}
 
-	public String getCena() {
+	public int getCena() {
 		return this.cena;
 	}
 
-	public void setCena(String cena) {
+	public void setCena(int cena) {
 		this.cena = cena;
 	}
 

@@ -51,26 +51,30 @@ public class AdministratorController {
 	}
 	
 	@RequestMapping(value="/dodajPredavaca", method= RequestMethod.POST)
+	@ResponseBody
 	public boolean dodajPredavaca(@RequestParam("ime") String ime, @RequestParam("prezime") String prezime, @RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("staz") int staz, @RequestParam("plata") int plata) {
 		Korisnik korisnik1 = korisnikRepo.findByUsername(username);
 		if(korisnik1 == null) {
+
 			Korisnik korisnik2 = new Korisnik();
 			korisnik2.setIme(ime);
 			korisnik2.setPrezime(prezime);
 			korisnik2.setUsername(username);
 			korisnik2.setPassword(password);
+			korisnik2.setPredavac(null);
 			korisnik2 = korisnikRepo.save(korisnik2);
 			if(korisnik2 == null) {
 				return false;
 			}	
+			korisnik2 = korisnikRepo.findByUsername(username);
 			Predavac predavac = new Predavac();
 			predavac.setKorisnik(korisnik2);
 			predavac.setPlata(plata);
 			predavac.setStaz(staz);
 			predavac = predavacRepo.save(predavac);
-			if(predavac == null) {
-				return false;
-			}		
+			predavac = predavacRepo.findByKorisnik(korisnik2);
+			korisnik2.setPredavac(predavac);
+			korisnikRepo.save(korisnik2);	
 			return true;
 		}else {
 			return false;
@@ -80,10 +84,11 @@ public class AdministratorController {
 
 	@RequestMapping(value = "/dodajKurs", method = RequestMethod.POST)
 	@ResponseBody
-	public boolean dodajKurs(@RequestParam("naziv") String naziv, @RequestParam("opis") String opis, @RequestParam("ocekivaniIshod") String ocekivaniIshod, @RequestParam("idKategorije") int idKategorije, @RequestParam("idPredavaca") int idPredavaca) {
+	public boolean dodajKurs(@RequestParam("naziv") String naziv, @RequestParam("opis") String opis, @RequestParam("ocekivaniIshod") String ocekivaniIshod, @RequestParam("idKategorije") int idKategorije, @RequestParam("idPredavaca") int idPredavaca, @RequestParam("cena") int cena) {
 		Kur k = new Kur();
 		k.setNaziv(naziv);
 		k.setOpis(opis);
+		k.setCena(cena);
 		k.setOcekivaniIshod(ocekivaniIshod);
 		k.setKategorija(kategorijaRepo.getById(idKategorije));
 		k.setPredavac(predavacRepo.getById(idPredavaca));

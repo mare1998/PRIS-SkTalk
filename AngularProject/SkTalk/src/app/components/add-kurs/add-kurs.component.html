@@ -1,91 +1,189 @@
 <div class="bg">
   <div class="row">
     <div class="col-sm">
-      <form style="padding-left: 50px; padding-right: 50px"  #kursForm="ngForm" (ngSubmit)="dodajNoviKurs(kursForm)">
-
-        <div class="naslov"><span style="background-color: aliceblue;">
+      <form
+        style="padding-left: 50px; padding-right: 50px"
+        #kursForm="ngForm"
+        (ngSubmit)="dodajNoviKurs(kursForm)"
+      >
+        <div class="naslov">
+          <span style="background-color: aliceblue">
             <h3>Dodavanje novog kursa</h3>
-          </span></div>
-        <hr>
+          </span>
+        </div>
+        <hr />
         <div class="row">
           <div class="col-sm">
-            <div class="flier"><img class="flier"
+            <div class="flier">
+              <img
+                class="flier"
                 src="https://t4.ftcdn.net/jpg/01/71/57/89/360_F_171578974_eNhE6sEpc6jsK6Py7IxhTbIZZQ7878Wb.jpg"
-                height="50" width="50"></div>
-          </div>
-          <div class="col-sm">
-            <div class="flier"><img class="flier"
-                src="https://media.istockphoto.com/photos/germany-flag-picture-id475988677?k=20&m=475988677&s=612x612&w=0&h=3AUulSzs5pWt9jkDksiBSdZCLDcc26V70gDWo32CKz0="
-                height="50" width="50"></div>
-          </div>
-          <div class="col-sm">
-            <div class="flier"><img class="flier"
-                src="https://thumbs.dreamstime.com/b/silk-spain-flag-over-texture-167324992.jpg" height="50" width="50">
+                height="50"
+                width="50"
+              />
             </div>
           </div>
           <div class="col-sm">
-            <div class="flier"><img class="flier"
+            <div class="flier">
+              <img
+                class="flier"
+                src="https://media.istockphoto.com/photos/germany-flag-picture-id475988677?k=20&m=475988677&s=612x612&w=0&h=3AUulSzs5pWt9jkDksiBSdZCLDcc26V70gDWo32CKz0="
+                height="50"
+                width="50"
+              />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="flier">
+              <img
+                class="flier"
+                src="https://thumbs.dreamstime.com/b/silk-spain-flag-over-texture-167324992.jpg"
+                height="50"
+                width="50"
+              />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="flier">
+              <img
+                class="flier"
                 src="https://thumbs.dreamstime.com/b/french-flag-waving-wind-symbol-france-silk-117113698.jpg"
-                height="50" width="50"></div>
+                height="50"
+                width="50"
+              />
+            </div>
           </div>
           <div class="col-sm">
-            <div class="flier"><img class="flier"
-                src="https://www.worldatlas.com/r/w1200/upload/20/07/2a/shutterstock-152854481.jpg" height="50"
-                width="50"></div>
+            <div class="flier">
+              <img
+                class="flier"
+                src="https://www.worldatlas.com/r/w1200/upload/20/07/2a/shutterstock-152854481.jpg"
+                height="50"
+                width="50"
+              />
+            </div>
           </div>
           <div class="col-sm">
-            <div class="flier"><img class="flier"
+            <div class="flier">
+              <img
+                class="flier"
                 src="https://media.istockphoto.com/photos/flag-of-sweden-waving-background-picture-id983123698?k=20&m=983123698&s=170667a&w=0&h=RefSD1I_9GUuU-stcBp9xf6ofKQ9RJiIV2Kzd8E17Eg="
-                height="50" width="50"></div>
+                height="50"
+                width="50"
+              />
+            </div>
           </div>
           <div class="col-sm">
-            <div class="flier"><img class="flier"
-                src="https://www.advantour.com/russia/images/symbolics/russia-flag.jpg" height="50" width="50"></div>
+            <div class="flier">
+              <img
+                class="flier"
+                src="https://www.advantour.com/russia/images/symbolics/russia-flag.jpg"
+                height="50"
+                width="50"
+              />
+            </div>
           </div>
         </div>
-        <hr>
+        <hr />
         <div class="form-group">
           <div class="dropdown">
             <div class="row">
               <div class="col-sm">
                 <div>
                   <select class="select-red" ngModel name="idKategorije">
-                      <option value="" selected disabled style="color: white;">Odaberite kategoriju</option>
-                      <option *ngFor="let kat of kategorije" value="{{kat.idKategorije}}">{{kat.naziv}}</option>
-                  </select></div></div>
-                  <div class="col-sm">
-                    <div>
-                      <select class="select-red" ngModel name="idPredavaca">
-                          <option value="" selected disabled style="color: white;">Odaberite predavaca</option>
-                          <option *ngFor="let p of predavaci" value="{{p.idPredavaca}}">{{p.ime}}{{p.prezime}}</option>
-                      </select></div></div>
+                    <option value="" selected disabled style="color: white">
+                      Odaberite kategoriju
+                    </option>
+                    <option
+                      *ngFor="let kat of kategorije"
+                      value="{{ kat.idKategorija }}"
+                    >
+                      {{ kat.naziv }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div>
+                  <select class="select-red" ngModel name="idPredavaca">
+                    <option value="" selected disabled style="color: white">
+                      Odaberite predavaca
+                    </option>
+                    <option
+                      *ngFor="let p of predavaci"
+                      value="{{ p.idKorisnik }}"
+                    >
+                      {{ p.ime }} {{ p.prezime }}
+                    </option>
+                  </select>
+                </div>
+              </div>
             </div>
-          </div><br>
+          </div>
+          <br />
           <label>Naziv novog kursa:</label>
-          <input type="text" class="form-control" placeholder="Naziv novog kursa" required ngModel name="naziv">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Naziv novog kursa"
+            required
+            ngModel
+            name="naziv"
+          />
         </div>
         <div class="form-group">
           <label>Opis novog kursa:</label>
-          <textarea type="text" class="form-control" placeholder="Opis novog kursa" required ngModel name="opis"></textarea>
+          <textarea
+            type="text"
+            class="form-control"
+            placeholder="Opis novog kursa"
+            required
+            ngModel
+            name="opis"
+          ></textarea>
         </div>
         <div class="form-group">
           <label>Ocekivani ishod kursa: </label>
-          <textarea type="textarea" class="form-control" placeholder="Ocekivani ishod kursa" required ngModel name="ocekivaniIshod"></textarea>
+          <textarea
+            type="textarea"
+            class="form-control"
+            placeholder="Ocekivani ishod kursa"
+            required
+            ngModel
+            name="ocekivaniIshod"
+          ></textarea>
         </div>
         <div class="form-group">
           <label>Maksimalni broj polaznika:</label>
-          <input type="number" class="form-control" value="1" required ngModel name="maxBrojPolaznika">
+          <input
+            type="number"
+            class="form-control"
+            value="1"
+            required
+            ngModel
+            name="maxBrojPolaznika"
+          />
         </div>
         <div class="row">
           <div class="col-sm">
             <div class="form-group">
               <label>Cena:</label>
-              <input type="number" class="form-control" value="1" required ngModel name="cena">
+              <input
+                type="number"
+                class="form-control"
+                value="1"
+                required
+                ngModel
+                name="cena"
+              />
             </div>
           </div>
           <div class="col-sm">
-            <div class="form-group"><br>
-              <button type="submit" class="btn btn-success">Dodaj novi kurs</button>
+            <div class="form-group">
+              <br />
+              <button type="submit" class="btn btn-success">
+                Dodaj novi kurs
+              </button>
             </div>
           </div>
         </div>
