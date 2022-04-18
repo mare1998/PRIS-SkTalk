@@ -32,7 +32,7 @@ export class KursService {
 
   getPredavac(idKurs: number): Observable<Korisnik> {
     return this.httpClient.get<Korisnik>(
-      this.BACKEND_BASE + 'polaznik/predavac-za-kurs/' + idKurs
+      this.BACKEND_BASE + 'polaznik/pronadjiPredavaca/' + idKurs
     );
   }
 
@@ -47,12 +47,11 @@ export class KursService {
       .set('naziv', kursForm.value.naziv)
       .set('opis', kursForm.value.opis)
       .set('ocekivaniIshod', kursForm.value.ocekivaniIshod)
-      .set('maxBrojPolaznika', kursForm.value.maxBrojPolaznika)
-      .set('idKategorija', kursForm.value.selectedKategorija)
-      .set('idPredavac', kursForm.value.selectedPredavac);
+      .set('idKategorije', kursForm.value.idKategorije)
+      .set('idPredavaca', kursForm.value.idPredavaca);
 
     return this.httpClient.post(
-      this.BACKEND_BASE + 'administrator/dodaj-kurs',
+      this.BACKEND_BASE + 'administrator/dodajKurs',
       params,
       {
         headers: new HttpHeaders({

@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'dodaj-kurs', component: AddKursComponent /*canActivate:[AuthGuardRadnik]*/},
   { path: 'dodaj-predavaca', component: AddPredavacComponent /*canActivate:[AuthGuardRadnik]*/},
   { path: 'dodaj-kategoriju', component: AddKategorijaComponent /*canActivate:[AuthGuardRadnik]*/},
-  { path: 'prikaz-kursa/:idKursa', component: KursViewComponent}, 
+  { path: 'prikaz-kursa/:nazivKursa', component: KursViewComponent}, 
 ];
 
 @NgModule({

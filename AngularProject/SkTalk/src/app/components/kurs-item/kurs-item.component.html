@@ -6,10 +6,9 @@
         </div>
         <div class="col" style="margin-right: 20px; text-align: left;">
             <h3><b>Naziv: {{course.naziv}}</b></h3><br>
-            <h4>Predavac: ime prezime </h4>
-            <h4>Jezik: jezik</h4>
-            <h4>Broj polaznika: {{course.maxBrojPolaznika}} </h4>
-            <button  class="btn btn-blue btn-lg"><a  routerLink="/prikaz-kursa/naziv" >Detaljnije---></a></button>
+            <h4>Predavac: {lecturer.ime}} {{lecturer.prezime}} </h4>
+            <h4>Jezik: {{kategorija.naziv}}</h4>
+            <button  class="btn btn-blue btn-lg"><a  routerLink="/prikaz-kursa/{{course.naziv}}" >Detaljnije---></a></button>
         </div>
     </div>
 </div></div><br><br>

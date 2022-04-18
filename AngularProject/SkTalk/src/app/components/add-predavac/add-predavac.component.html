@@ -1,5 +1,5 @@
 <div class="bg">
-    <form #predavacForm="ngForm">
+    <form #predavacForm="ngForm" (ngSubmit)="dodavanjePredavaca(predavacForm)">
         <div class="naslov"><span style="background-color: aliceblue;">
                 <h3 style="font-size: 50px;">Dodavanje novog predavaca</h3>
             </span></div>
@@ -19,7 +19,7 @@
             <div class="col-sm">
         <div class="form-group">
             <label>Radni staz predavaca:</label>
-            <input type="number" class="form-control" value="1" required ngModel name="radniStaz"> 
+            <input type="number" class="form-control" value="1" required ngModel name="staz"> 
         </div></div>
             <div class="col-sm">
         <div class="form-group">

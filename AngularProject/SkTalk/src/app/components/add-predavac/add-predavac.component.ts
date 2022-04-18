@@ -9,21 +9,22 @@ import { PredavacService } from 'src/app/services/predavac.service';
 })
 export class AddPredavacComponent implements OnInit {
 
-  // constructor(private predavacService: PredavacService, private router: Router) { }
+  constructor(private predavacService: PredavacService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
- /* dodavanjePredavaca(predavacForm:any) {
+  dodavanjePredavaca(predavacForm:any) {
     this.predavacService.dodajPredavaca(predavacForm).subscribe((resp:any)=> {
       if(resp == true) {
         alert("Uspesno dodavanje predavaca")
+        window.location.href = "http://localhost:4200/dodaj-predavaca"
 
       }
       else {
         alert("Greska pri dodavanju predavaca")
       }
     })
-  }*/
+  }
 
 }
