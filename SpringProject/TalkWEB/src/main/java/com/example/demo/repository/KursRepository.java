@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import model.Kur;
 
 public interface KursRepository extends JpaRepository<Kur, Integer>{
+	
+	public Kur findByNaziv(String nazivKursa);
 
 }
