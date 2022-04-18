@@ -15,7 +15,7 @@ export class KategorijaService {
 
   getKategorije(): Observable<Kategorija[]> {
     return this.httpClient.get<Kategorija[]>(
-      this.BACKEND_BASE + 'administrator/vratiKategorije'
+      this.BACKEND_BASE + 'administrator/sveKategorije'
     );
   }
 

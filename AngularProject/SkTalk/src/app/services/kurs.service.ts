@@ -26,7 +26,7 @@ export class KursService {
 
   nadjiKurs(nazivKursa: String): Observable<Kurs> {
     return this.httpClient.get<Kurs>(
-      this.BACKEND_BASE + 'polaznik/kurs-po-imenu/' + nazivKursa
+      this.BACKEND_BASE + 'polaznik/pronadjiKursPoNazivu/' + nazivKursa
     );
   }
 
@@ -38,7 +38,7 @@ export class KursService {
 
   getKategorijaKursa(idKurs: number): Observable<Kategorija> {
     return this.httpClient.get<Kategorija>(
-      this.BACKEND_BASE + 'polaznik/kategorija-kursa/' + idKurs
+      this.BACKEND_BASE + 'polaznik/pronadjiKategoriju/' + idKurs
     );
   }
 
