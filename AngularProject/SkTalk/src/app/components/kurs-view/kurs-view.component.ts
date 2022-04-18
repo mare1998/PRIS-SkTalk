@@ -15,6 +15,7 @@ export class KursViewComponent implements OnInit {
   @Input() public izabraniKurs: Kurs
   public predavac: Korisnik
   public kategorija: Kategorija
+  public slika: string
   
   constructor(private kursService:KursService, private router:Router, private route: ActivatedRoute) { }
 
@@ -29,6 +30,11 @@ export class KursViewComponent implements OnInit {
     this.kursService.getKategorijaKursa(this.izabraniKurs.idKurs).subscribe((resp:any)=> {
       this.kategorija = resp;
     })
+    this.slika = 'https://media.istockphoto.com/photos/flag-of-sweden-waving-background-picture-id983123698?k=20&m=983123698&s=170667a&w=0&h=RefSD1I_9GUuU-stcBp9xf6ofKQ9RJiIV2Kzd8E17Eg=';
+    console.log("SLIKAAAAA "+this.slika)
+    if (this.kategorija.naziv.localeCompare('Svedski')){
+      this.slika = 'https://media.istockphoto.com/photos/flag-of-sweden-waving-background-picture-id983123698?k=20&m=983123698&s=170667a&w=0&h=RefSD1I_9GUuU-stcBp9xf6ofKQ9RJiIV2Kzd8E17Eg=';
+    }
   }
 
 }
