@@ -11,6 +11,9 @@ h4{
 }
 
 .flier {
+    margin-top: 30px;
+    margin-left: 60px;
+    margin-right: 20px;
     pointer-events: none;
     animation: shake 5s;
     animation-iteration-count: infinite;
@@ -31,3 +34,10 @@ h4{
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
+
+p {
+	font-weight: 400;
+	font-size: 1.15rem;
+	width: 400px;
+	margin-top: 50px;
+}

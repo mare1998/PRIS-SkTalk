@@ -23,8 +23,11 @@ export class KursViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.slika ='https://media.istockphoto.com/photos/flag-of-sweden-waving-background-picture-id983123698?k=20&m=983123698&s=170667a&w=0&h=RefSD1I_9GUuU-stcBp9xf6ofKQ9RJiIV2Kzd8E17Eg=';
+    if (this.kategorija.naziv.localeCompare('Svedski')) {
+      this.slika ='https://media.istockphoto.com/photos/flag-of-sweden-waving-background-picture-id983123698?k=20&m=983123698&s=170667a&w=0&h=RefSD1I_9GUuU-stcBp9xf6ofKQ9RJiIV2Kzd8E17Eg=';
+    }
     const nazivKursa = this.route.snapshot.paramMap.get('nazivKursa');
-    console.log(nazivKursa);
     this.kursService.nadjiKurs(nazivKursa).subscribe((resp: any) => {
       this.izabraniKurs = resp;
       console.log(this.izabraniKurs.idKurs);
@@ -37,16 +40,7 @@ export class KursViewComponent implements OnInit {
             .subscribe((resp: any) => {
               this.kategorija = resp;
             });
-          console.log(this.predavac.ime);
         });
     });
-
-    this.slika =
-      'https://media.istockphoto.com/photos/flag-of-sweden-waving-background-picture-id983123698?k=20&m=983123698&s=170667a&w=0&h=RefSD1I_9GUuU-stcBp9xf6ofKQ9RJiIV2Kzd8E17Eg=';
-    console.log('SLIKAAAAA ' + this.slika);
-    if (this.kategorija.naziv.localeCompare('Svedski')) {
-      this.slika =
-        'https://media.istockphoto.com/photos/flag-of-sweden-waving-background-picture-id983123698?k=20&m=983123698&s=170667a&w=0&h=RefSD1I_9GUuU-stcBp9xf6ofKQ9RJiIV2Kzd8E17Eg=';
-    }
   }
 }

@@ -9,16 +9,19 @@
         <h4>Predavac: {{ predavac.ime }} {{ predavac.prezime }}</h4>
         <h4>Cena: {{ izabraniKurs.cena }}</h4>
       </div>
-      <div class="col-md-4">
-        <div class="flier">
-          <img class="flier" [src]="slika" height="200" width="200" />
-        </div>
+      <div class="col-md-4" style="text-align: right">
+        <div class="flier"><img class="flier" [src]="slika" height="200" width="200" /></div>
       </div>
+    </div>
+  <div class="row">
+    <div class="col">
+      <p>Opis: {{ izabraniKurs.opis }}</p>
+      <br/>
     </div>
   </div>
   <div class="row">
-    <p>Opis: {{ izabraniKurs.opis }}</p>
-    <br />
-    <p>Ocekivani ishod: {{ izabraniKurs.ocekivaniIshod }}</p>
+    <div class="col">
+      <p>Ocekivani ishod: {{ izabraniKurs.ocekivaniIshod }}</p>
+    </div>
   </div>
 </div>
