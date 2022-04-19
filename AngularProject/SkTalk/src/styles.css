@@ -3,9 +3,10 @@
 :root {
     --nav-color: #edc811;
     --butn-blue:#63ff9c;
-    --body-back:  #ccfffa;
+    --body-back: #b5ffef;
     --text-color: #027833;
     --blue-col: #18edd8;
+    --course-tex-c:#043812;
     
 }
 
@@ -18,7 +19,7 @@
 	padding: 50px 50px 50px;
 	background-color:var(--body-back);
 	min-height: 30vh;
-	opacity: 0.8;
+	opacity: 0.7;
 	
 	
 	display: flex;
