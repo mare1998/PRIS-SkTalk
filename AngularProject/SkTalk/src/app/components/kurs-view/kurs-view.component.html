@@ -7,21 +7,24 @@
         </h2>
         <h3>Jezik: {{ kategorija.naziv }}</h3>
         <h4>Predavac: {{ predavac.ime }} {{ predavac.prezime }}</h4>
-        <h4>Cena: {{ izabraniKurs.cena }}</h4>
       </div>
       <div class="col-md-4" style="text-align: right">
-        <div class="flier"><img class="flier" [src]="slika" height="200" width="200" /></div>
+        <div class="flier">
+          <img class="flier" [src]="slika" height="200" width="200" />
+        </div>
       </div>
-    </div><br><br><br>
-  <div class="row">
-    <div class="col">
-      <p><b>Opis:</b> {{ izabraniKurs.opis }}</p>
-      <br/>
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <p><b>Očekivani ishod:</b> {{ izabraniKurs.ocekivaniIshod }}</p>
+    <br /><br /><br />
+    <div class="row">
+      <div class="col">
+        <p><b>Opis:</b> {{ izabraniKurs.opis }}</p>
+        <br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p><b>Očekivani ishod:</b> {{ izabraniKurs.ocekivaniIshod }}</p>
+      </div>
     </div>
   </div>
 </div>
