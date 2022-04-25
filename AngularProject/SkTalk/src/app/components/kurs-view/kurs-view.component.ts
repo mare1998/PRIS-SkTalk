@@ -36,34 +36,13 @@ export class KursViewComponent implements OnInit {
             .subscribe((resp: any) => {
               this.kategorija = resp;
               console.log('Kategorija: ' + this.kategorija.naziv);
-              this.postavljanjeSlike(this.kategorija.naziv);
+              this.postavljanjeSlike(this.kategorija.slika);
             });
         });
     });
   }
 
-  postavljanjeSlike(naziv: string) {
-    if (naziv.localeCompare('Svedski') == 0) {
-      this.slika =
-        'https://media.istockphoto.com/photos/flag-of-sweden-waving-background-picture-id983123698?k=20&m=983123698&s=170667a&w=0&h=RefSD1I_9GUuU-stcBp9xf6ofKQ9RJiIV2Kzd8E17Eg=';
-    } else if (naziv.localeCompare('Engleski') == 0) {
-      this.slika =
-        'https://t4.ftcdn.net/jpg/01/71/57/89/360_F_171578974_eNhE6sEpc6jsK6Py7IxhTbIZZQ7878Wb.jpg';
-    } else if (naziv.localeCompare('Francuski') == 0) {
-      this.slika =
-        'https://thumbs.dreamstime.com/b/french-flag-waving-wind-symbol-france-silk-117113698.jpg';
-    } else if (naziv.localeCompare('Nemacki') == 0) {
-      this.slika =
-        'https://media.istockphoto.com/photos/germany-flag-picture-id475988677?k=20&m=475988677&s=612x612&w=0&h=3AUulSzs5pWt9jkDksiBSdZCLDcc26V70gDWo32CKz0=';
-    } else if (naziv.localeCompare('Spanski') == 0) {
-      this.slika =
-        'https://thumbs.dreamstime.com/b/silk-spain-flag-over-texture-167324992.jpg';
-    } else if (naziv.localeCompare('Ruski') == 0) {
-      this.slika =
-        'https://www.advantour.com/russia/images/symbolics/russia-flag.jpg';
-    } else if (naziv.localeCompare('Italijanski') == 0) {
-      this.slika =
-        'https://www.worldatlas.com/r/w1200/upload/20/07/2a/shutterstock-152854481.jpg';
-    }
+  postavljanjeSlike(slika: string) {
+    this.slika = slika;
   }
 }
