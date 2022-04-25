@@ -27,6 +27,8 @@ public class Kategorija implements Serializable {
 	private int idKategorija;
 
 	private String naziv;
+	
+	private String slika;
 
 	//bi-directional many-to-one association to Kur
 	@OneToMany(mappedBy="kategorija")
@@ -74,4 +76,11 @@ public class Kategorija implements Serializable {
 		return kur;
 	}
 
+	public String getSlika() {
+		return slika;
+	}
+
+	public void setSlika(String slika) {
+		this.slika = slika;
+	}
 }
