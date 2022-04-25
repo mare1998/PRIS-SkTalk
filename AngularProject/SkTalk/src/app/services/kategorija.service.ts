@@ -19,8 +19,8 @@ export class KategorijaService {
     );
   }
 
-  dodajKategoriju(nazivKategorije: string): any {
-    let params = new HttpParams().set('naziv', nazivKategorije);
+  dodajKategoriju(nazivKategorije: string, slikaKategorije: string): any {
+    let params = new HttpParams().set('naziv', nazivKategorije).set('slika', slikaKategorije);
     return this.httpClient.post(
       this.BACKEND_BASE + 'administrator/dodajKategoriju',
       params,
