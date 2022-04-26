@@ -1,0 +1,11 @@
+15 lines (15 sloc) 704 Bytes
+<div class="login-body" style="margin-top: 120px; border:10px solid rgba(30, 184, 10, 0.904);">
+        <form (ngSubmit)="login()">
+            <h2>~Prijava~</h2><br>
+            <label>Korisničko ime</label><br>
+            <input type="text" class="form-control" placeholder="korisnickoIme" name="username" required [(ngModel)]="username"> <br>
+            <label>Šifra</label><br>
+            <input type="password" class="form-control" placeholder="*********" name="password" required [(ngModel)]="password"> <br><br>
+            <button class="btn btn-success" type="submit">Prijavi se</button><br><br>
+        </form>
+</div>

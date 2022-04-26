@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { KursItemComponent } from './components/kurs-item/kurs-item.component';
 import { KursViewComponent } from './components/kurs-view/kurs-view.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     AddKategorijaComponent,
     KursItemComponent,
     KursViewComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

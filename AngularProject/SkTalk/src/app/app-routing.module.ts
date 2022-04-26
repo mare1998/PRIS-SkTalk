@@ -5,6 +5,7 @@ import { AddKursComponent } from './components/add-kurs/add-kurs.component';
 import { AddPredavacComponent } from './components/add-predavac/add-predavac.component';
 import { KursViewComponent } from './components/kurs-view/kurs-view.component';
 import { KurseviComponent } from './components/kursevi/kursevi.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'svi-kursevi', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'dodaj-predavaca', component: AddPredavacComponent /*canActivate:[AuthGuardRadnik]*/},
   { path: 'dodaj-kategoriju', component: AddKategorijaComponent /*canActivate:[AuthGuardRadnik]*/},
   { path: 'prikaz-kursa/:nazivKursa', component: KursViewComponent}, 
+  { path: 'login', component:LoginComponent}
 ];
 
 @NgModule({
