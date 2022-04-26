@@ -21,7 +21,7 @@ export class AddKategorijaComponent implements OnInit {
   dodajKategorija(kategorijaForm: any) {
     console.log(kategorijaForm.value.nazivKat);
     this.kategorijaService
-      .dodajKategoriju(kategorijaForm.value.nazivKat)
+      .dodajKategoriju(kategorijaForm.value.nazivKat, kategorijaForm.value.slikaKat)
       .subscribe((resp: any) => {
         console.log(resp);
         if (resp == true) {
