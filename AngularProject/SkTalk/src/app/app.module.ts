@@ -13,6 +13,7 @@ import { KursItemComponent } from './components/kurs-item/kurs-item.component';
 import { KursViewComponent } from './components/kurs-view/kurs-view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LoginComponent } from './components/login/login.component';
     KursItemComponent,
     KursViewComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
