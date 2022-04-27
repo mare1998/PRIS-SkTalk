@@ -17,6 +17,9 @@
   <div *ngIf="proveriUlogovanostAdmina()"><a  routerLink="dodaj-kategoriju" class="btn-blue" role="button" >Dodaj kategoriju</a></div>
   <div *ngIf="!proveriUlogovanost()"><a  routerLink="login" class="btn-blue" role="button" >Prijavi se</a></div>  
   <div *ngIf="!proveriUlogovanost()"><a  routerLink="register" class="btn-blue" role="button" >Registruj se</a></div>
+  <div *ngIf="proveriUlogovanost()">
+    <a routerLink="login" class="btn-blue" role="button" (click)="logOut()" >Odjavi se</a>
+</div>  
   <div><img class="logo-image"/></div><br>
 </div>               
 <div class="background"></div>

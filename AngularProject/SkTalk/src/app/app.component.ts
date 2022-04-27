@@ -55,5 +55,9 @@ export class AppComponent {
     }
     return false;
   }
+
+  logOut(){
+    localStorage.clear();
+  }
   
 }
