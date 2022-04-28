@@ -1,1 +1,20 @@
-<p>register works!</p>
+15 lines (15 sloc) 704 Bytes
+<div class="register-body" style="margin-top: 120px; border:10px solid rgba(30, 184, 10, 0.904);">
+    <form #userForm="ngForm" (ngSubmit)="register(userForm)">
+        <h2>~Registracija~</h2><br>
+        <div class="row">
+            <div class="col-sm">
+                <label>Ime:</label><br>
+                <input type="text" class="form-control" placeholder="Ime" required ngModel name="ime"><br>
+                <label>Username:</label><br>
+                <input type="text" class="form-control" placeholder="Username" required ngModel name="username" ><br></div>
+                <div class="col-sm">
+                    <label>Prezime:</label><br>
+                    <input type="text" class="form-control" placeholder="Prezime" required ngModel name="prezime"><br>
+                <label>Password:</label><br>
+                <input type="text" class="form-control" placeholder="Password" required ngModel name="password"><br>
+            </div>
+        </div><br>
+        <button class="btn btn-success" type="submit">Registruj se</button><br><br>
+    </form> <br>
+</div>
