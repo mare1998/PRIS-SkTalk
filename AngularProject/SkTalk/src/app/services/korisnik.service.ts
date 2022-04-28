@@ -24,6 +24,8 @@ export class KorisnikService {
     .set('prezime', userForm.value.prezime)
     .set('username', userForm.value.username)
     .set('password', userForm.value.password)
+    .set('adresa', userForm.value.adresa)
+    .set('telefon', userForm.value.telefon)
     
     console.log(params)
     return this.httpClient.post(this.BACKEND_BASE+"register", params, 
