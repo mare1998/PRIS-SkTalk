@@ -80,12 +80,11 @@ public class PolaznikController {
 	public ResponseEntity<Boolean> prijavaNaKurs(@RequestParam(name="idKorisnik") Integer idKorisnik, @RequestParam(name="idKurs") Integer idKurs){
 		Polaznik polaznik = polaznikRepo.getById(idKorisnik);
 		Kur kurs = kursRepo.getById(idKurs);
-		boolean dodatKurs = polaznik.getKurs().add(kurs);
-		boolean dodatPolaznik = kurs.getPolazniks().add(polaznik);
-		if(dodatKurs && dodatPolaznik) {
-			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
-		}
-		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+		polaznik.getKurs().add(kurs);
+		kurs.getPolazniks().add(polaznik);
+		polaznikRepo.save(polaznik);
+		kursRepo.save(kurs);
+		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 	
 	@GetMapping(value="/pronadjiLekcijeKursa/{nazivKursa}")
