@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -60,7 +61,8 @@ public class AdministratorController {
 			korisnik2.setIme(ime);
 			korisnik2.setPrezime(prezime);
 			korisnik2.setUsername(username);
-			korisnik2.setPassword(password);
+			BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
+			korisnik2.setPassword(passEncoder.encode(password));
 			korisnik2.setPredavac(null);
 			korisnik2 = korisnikRepo.save(korisnik2);
 			if(korisnik2 == null) {
