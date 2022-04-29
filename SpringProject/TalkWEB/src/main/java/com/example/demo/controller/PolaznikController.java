@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -76,7 +77,7 @@ public class PolaznikController {
 		return new ResponseEntity<List<Kur>>(kursevi, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/prijavaNaKurs", method=RequestMethod.POST)
+	@PostMapping(value="/prijavaNaKurs")
 	public ResponseEntity<Boolean> prijavaNaKurs(@RequestParam(name="idKorisnik") Integer idKorisnik, @RequestParam(name="idKurs") Integer idKurs){
 		Polaznik polaznik = polaznikRepo.getById(idKorisnik);
 		Kur kurs = kursRepo.getById(idKurs);
