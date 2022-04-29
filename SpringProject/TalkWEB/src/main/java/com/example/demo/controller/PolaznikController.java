@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.repository.KategorijaRepository;
 import com.example.demo.repository.KursRepository;
+import com.example.demo.repository.PolaznikRepository;
 import com.example.demo.repository.PredavacRepository;
 
 import model.Kategorija;
 import model.Korisnik;
 import model.Kur;
+import model.Lekcija;
+import model.Polaznik;
 import model.Predavac;
 
 @Controller
@@ -33,6 +36,10 @@ public class PolaznikController {
 	
 	@Autowired
 	KategorijaRepository kategorijaRepo;
+	
+	@Autowired
+	PolaznikRepository polaznikRepo;
+
 	
 	@RequestMapping(value="/sviKursevi", method=RequestMethod.GET)
 	public ResponseEntity<List<Kur>> sviKursevi(){
@@ -67,5 +74,23 @@ public class PolaznikController {
 		Kategorija k = kategorijaRepo.getById(id);
 		List<Kur> kursevi = kursRepo.findByKategorija(k);
 		return new ResponseEntity<List<Kur>>(kursevi, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/prijavaNaKurs", method=RequestMethod.POST)
+	public ResponseEntity<Boolean> prijavaNaKurs(@RequestParam(name="idKorisnik") Integer idKorisnik, @RequestParam(name="idKurs") Integer idKurs){
+		Polaznik polaznik = polaznikRepo.getById(idKorisnik);
+		Kur kurs = kursRepo.getById(idKurs);
+		boolean dodatKurs = polaznik.getKurs().add(kurs);
+		boolean dodatPolaznik = kurs.getPolazniks().add(polaznik);
+		if(dodatKurs && dodatPolaznik) {
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		}
+		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+	}
+	
+	@GetMapping(value="/pronadjiLekcijeKursa/{nazivKursa}")
+	public ResponseEntity<List<Lekcija>> pronadjiLekcijeKursa(@PathVariable String nazivKursa) {
+		Kur kurs = kursRepo.findByNaziv(nazivKursa);
+		return new ResponseEntity<List<Lekcija>>(kurs.getLekcijas(), HttpStatus.OK);
 	}
 }
