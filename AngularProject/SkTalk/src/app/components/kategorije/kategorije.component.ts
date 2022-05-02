@@ -30,6 +30,7 @@ export class KategorijeComponent implements OnInit {
   ngOnInit(): void {
     this.kategorijaService.getKategorije().subscribe((resp: any) => {
       this.kategorije = resp;
+      console.log("Kategorije pribavljeni: "+resp);
     });
     this.kursService.getKursevi().subscribe((resp: any) => {
       (this.kursevi = resp), (this.trazeniKurs = undefined);
