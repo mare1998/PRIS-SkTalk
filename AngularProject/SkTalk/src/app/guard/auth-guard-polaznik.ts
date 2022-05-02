@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
-export class AuthGuardPredavac implements CanActivate {
+export class AuthGuardPolaznik implements CanActivate {
 
     public uloga: string
 
@@ -13,13 +13,13 @@ export class AuthGuardPredavac implements CanActivate {
         var x = localStorage.getItem("uloga");
         if (x != null){
             this.uloga = x; 
-            if (localStorage.getItem("token") && this.uloga.localeCompare("predavac") == 0){
-                console.log("proverili smo token i ulogu, poklapa se sa predavacem")
+            if (localStorage.getItem("token") && this.uloga.localeCompare("polaznik") == 0){
+                console.log("proverili smo token i uloge, poklapa se sa polaznikom.")
                 return true;
             }
         }   
-        console.log("prosli smo proveru za predavac"); 
-        alert("Niste ulogovani kao predavac!")
+        console.log("prosli smo proveru za polaznik"); 
+        alert("Niste ulogovani kao polaznik!")
         this.router.navigate(["/svi-kursevi"])
         return false;
     }
