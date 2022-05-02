@@ -11,7 +11,7 @@
     </div>
    <input class="form-control mr-sm-2" type="search" name ="nazivKursa" placeholder="Pretrazi kurs" aria-label="Search"/>
     <button class="btn btn-success my-2 my-sm-0" type="submit">Pretrazi kurs</button>
-  </form>
+  </form><br><br>
   <div *ngIf="trazeniKurs != undefined">
     <app-kurs-item [course]="trazeniKurs"></app-kurs-item>
   </div>
