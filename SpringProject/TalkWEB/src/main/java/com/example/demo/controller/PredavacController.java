@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.repository.KursRepository;
 import com.example.demo.repository.LekcijaRepository;
@@ -24,10 +28,11 @@ public class PredavacController {
 	KursRepository kursRepo;
 	
 	@RequestMapping(value="/dodajLekciju", method=RequestMethod.GET)
-	public ResponseEntity<Boolean> dodajLekciju(@RequestParam("idKursa") Integer idKursa, @RequestParam("slika") byte[] slika, @RequestParam("tekst") String tekst, @RequestParam("urlVidea") String urlVidea){
+	public ResponseEntity<Boolean> dodajLekciju(@RequestParam("idKursa") Integer idKursa, @RequestPart("slika") MultipartFile slika, @RequestParam("tekst") String tekst, @RequestParam("urlVidea") String urlVidea) throws IOException{
 		Lekcija lekcija = new Lekcija();
 		lekcija.setKur(kursRepo.getById(idKursa));
-		lekcija.setSlika(slika);
+		byte[] mediaBytes = slika.getBytes();
+		lekcija.setSlika(mediaBytes);
 		lekcija.setTekst(tekst);
 		lekcija.setUrlVidea(urlVidea);
 		lekcija = lekcijaRepo.save(lekcija);
