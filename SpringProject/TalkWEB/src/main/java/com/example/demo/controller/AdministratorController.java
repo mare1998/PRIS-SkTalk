@@ -3,11 +3,13 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.repository.KategorijaRepository;
 import com.example.demo.repository.KorisnikRepository;
@@ -36,8 +38,7 @@ public class AdministratorController {
 	KursRepository kursRepo;
 	
 	@RequestMapping(value = "/dodajKategoriju", method = RequestMethod.POST)
-	@ResponseBody
-	public boolean dodajKategoriju(@RequestParam("naziv") String naziv, @RequestParam("slika") String slika) {
+	public ResponseEntity<Boolean> dodajKategoriju(@RequestParam("naziv") String naziv, @RequestParam("slika") String slika) {
 		Kategorija kategorija = kategorijaRepo.findKategorija(naziv);
 		if(kategorija == null) {
 			Kategorija k = new Kategorija();
@@ -45,15 +46,14 @@ public class AdministratorController {
 			k.setSlika(slika);
 			k = kategorijaRepo.save(k);
 			if(k != null) {
-				return true;
+				return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 			}
 		}
-		return false;
+		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/dodajPredavaca", method= RequestMethod.POST)
-	@ResponseBody
-	public boolean dodajPredavaca(@RequestParam("ime") String ime, @RequestParam("prezime") String prezime, @RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("staz") int staz, @RequestParam("plata") int plata) {
+	public ResponseEntity<Boolean> dodajPredavaca(@RequestParam("ime") String ime, @RequestParam("prezime") String prezime, @RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("staz") int staz, @RequestParam("plata") int plata) {
 		Korisnik korisnik1 = korisnikRepo.findByUsername(username);
 		if(korisnik1 == null) {
 
@@ -61,11 +61,12 @@ public class AdministratorController {
 			korisnik2.setIme(ime);
 			korisnik2.setPrezime(prezime);
 			korisnik2.setUsername(username);
-			korisnik2.setPassword(password);
+			BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
+			korisnik2.setPassword(passEncoder.encode(password));
 			korisnik2.setPredavac(null);
 			korisnik2 = korisnikRepo.save(korisnik2);
 			if(korisnik2 == null) {
-				return false;
+				return new ResponseEntity<Boolean>(false, HttpStatus.OK);
 			}	
 			korisnik2 = korisnikRepo.findByUsername(username);
 			Predavac predavac = new Predavac();
@@ -76,16 +77,15 @@ public class AdministratorController {
 			predavac = predavacRepo.findByKorisnik(korisnik2);
 			korisnik2.setPredavac(predavac);
 			korisnikRepo.save(korisnik2);	
-			return true;
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 		}else {
-			return false;
+			return new ResponseEntity<Boolean>(false, HttpStatus.OK);
 		}
 	}
 	
 
 	@RequestMapping(value = "/dodajKurs", method = RequestMethod.POST)
-	@ResponseBody
-	public boolean dodajKurs(@RequestParam("naziv") String naziv, @RequestParam("opis") String opis, @RequestParam("ocekivaniIshod") String ocekivaniIshod, @RequestParam("idKategorije") int idKategorije, @RequestParam("idPredavaca") int idPredavaca, @RequestParam("cena") int cena) {
+	public ResponseEntity<Boolean> dodajKurs(@RequestParam("naziv") String naziv, @RequestParam("opis") String opis, @RequestParam("ocekivaniIshod") String ocekivaniIshod, @RequestParam("idKategorije") int idKategorije, @RequestParam("idPredavaca") int idPredavaca, @RequestParam("cena") int cena) {
 		Kur k = new Kur();
 		k.setNaziv(naziv);
 		k.setOpis(opis);
@@ -95,20 +95,19 @@ public class AdministratorController {
 		k.setPredavac(predavacRepo.getById(idPredavaca));
 		k = kursRepo.save(k);
 		if(k != null) {
-			return true;
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 		}
-		return false;
+		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/sviPredavaci", method = RequestMethod.GET)
-	@ResponseBody
-	public List<Korisnik> sviPredavaci() {
-		return korisnikRepo.findPredavace();
+	public ResponseEntity<List<Korisnik>> sviPredavaci() {
+		List<Korisnik> predavaci = korisnikRepo.findPredavace();
+		return new ResponseEntity<List<Korisnik>>(predavaci, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/sveKategorije", method = RequestMethod.GET)
-	@ResponseBody
-	public List<Kategorija> sveKategorije() {
-		return kategorijaRepo.findAll();
+	public ResponseEntity<List<Kategorija>> sveKategorije() {
+		return new ResponseEntity<List<Kategorija>>(kategorijaRepo.findAll(), HttpStatus.OK);
 	}
 }
