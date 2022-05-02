@@ -1,4 +1,4 @@
-package security;
+package com.example.demo.security;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -31,13 +31,14 @@ public class MyUserDetails implements UserDetails{
 	PredavacRepository predavacRepo;
 
 	public MyUserDetails(Korisnik k) {
+		System.out.println("MY USER DETAILS: "+k.getUsername());
 		this.username = k.getUsername();
 		this.password = k.getPassword();
 		this.ime = k.getIme();
 		this.prezime = k.getPrezime();
 		Polaznik polaznik = polaznikRepo.findByKorisnik(k);
 		Predavac predavac = predavacRepo.findByKorisnik(k);
-		String role = polaznik == null ? "polaznik" : (predavac == null ? "predavac" : "admin");
+		String role = polaznik != null ? "polaznik" : (predavac != null ? "predavac" : "admin");
 		
 		this.authorities = Arrays.asList(new SimpleGrantedAuthority("ROLE_" + role));
 	}

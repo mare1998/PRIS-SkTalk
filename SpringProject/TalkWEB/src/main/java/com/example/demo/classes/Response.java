@@ -1,4 +1,4 @@
-package classes;
+package com.example.demo.classes;
 
 public class Response {
 	

@@ -41,12 +41,6 @@ public class PolaznikController {
 	@Autowired
 	PolaznikRepository polaznikRepo;
 
-	
-	@RequestMapping(value="/sviKursevi", method=RequestMethod.GET)
-	public ResponseEntity<List<Kur>> sviKursevi(){
-		return new ResponseEntity<List<Kur>>(kursRepo.findAll(), HttpStatus.OK);
-	}
-	
 	@RequestMapping(value="/prikazKursa", method=RequestMethod.GET)
 	public ResponseEntity<Kur> prikazKursa(@RequestParam("idKursa") int id) {
 		return new ResponseEntity<Kur>(kursRepo.getById(id),HttpStatus.OK);
@@ -63,20 +57,7 @@ public class PolaznikController {
 		Kur k = kursRepo.getById(idKurs);
 		return new ResponseEntity<Kategorija>(k.getKategorija(), HttpStatus.OK);
 	}
-	
-	@GetMapping(value="/pronadjiKursPoNazivu/{nazivKursa}")
-	public ResponseEntity<Kur> pronadjiKursPoNazivu(@PathVariable String nazivKursa) {
-		Kur k = kursRepo.findByNaziv(nazivKursa);
-		return new ResponseEntity<Kur>(k, HttpStatus.OK);
-	}
-	
-	@GetMapping(value="/kurseviZaKategoriju/{idKategorija}")
-	public ResponseEntity<List<Kur>> kurseviZaKategoriju(@PathVariable Integer id){
-		Kategorija k = kategorijaRepo.getById(id);
-		List<Kur> kursevi = kursRepo.findByKategorija(k);
-		return new ResponseEntity<List<Kur>>(kursevi, HttpStatus.OK);
-	}
-	
+		
 	@PostMapping(value="/prijavaNaKurs")
 	public ResponseEntity<Boolean> prijavaNaKurs(@RequestParam(name="idKorisnik") Integer idKorisnik, @RequestParam(name="idKurs") Integer idKurs){
 		Polaznik polaznik = polaznikRepo.getById(idKorisnik);

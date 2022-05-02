@@ -15,12 +15,14 @@ export class KategorijaService {
 
   getKategorije(): Observable<Kategorija[]> {
     return this.httpClient.get<Kategorija[]>(
-      this.BACKEND_BASE + 'administrator/sveKategorije'
+      this.BACKEND_BASE + 'posetilac/sveKategorije'
     );
   }
 
   dodajKategoriju(nazivKategorije: string, slikaKategorije: string): any {
-    let params = new HttpParams().set('naziv', nazivKategorije).set('slika', slikaKategorije);
+    let params = new HttpParams()
+      .set('naziv', nazivKategorije)
+      .set('slika', slikaKategorije);
     return this.httpClient.post(
       this.BACKEND_BASE + 'administrator/dodajKategoriju',
       params,

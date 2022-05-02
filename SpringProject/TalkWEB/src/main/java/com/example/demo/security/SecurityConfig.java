@@ -1,8 +1,9 @@
-package security;
+package com.example.demo.security;
 
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,6 +23,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
+	@Qualifier("UserDetailProvider")
  	UserDetailsService userDetailsService;
 	
 	@Bean
@@ -51,10 +53,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 	protected void configure(HttpSecurity http) throws Exception {
+		System.out.println("CONFIGGGG");
 		http.csrf().disable()
         .cors().and()
         .authorizeRequests()
-        .antMatchers("/auth/**", "/base/**", "/ang/**", "/angalb/**", "/angpes/**")
+        .antMatchers("/auth/**", "/base/**", "/ang/**", "/angalb/**", "/angpes/**", "/posetilac/**", "/security/**")
         .permitAll()   
         .antMatchers("/administrator/**")
         .hasAnyRole("admin", "ROLE_admin")

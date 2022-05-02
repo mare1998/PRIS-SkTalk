@@ -105,9 +105,5 @@ public class AdministratorController {
 		List<Korisnik> predavaci = korisnikRepo.findPredavace();
 		return new ResponseEntity<List<Korisnik>>(predavaci, HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "/sveKategorije", method = RequestMethod.GET)
-	public ResponseEntity<List<Kategorija>> sveKategorije() {
-		return new ResponseEntity<List<Kategorija>>(kategorijaRepo.findAll(), HttpStatus.OK);
-	}
+
 }

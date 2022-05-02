@@ -15,15 +15,14 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.classes.Response;
 import com.example.demo.repository.KorisnikRepository;
 import com.example.demo.repository.PolaznikRepository;
 import com.example.demo.repository.PredavacRepository;
 
-import classes.Response;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import model.Korisnik;
@@ -43,23 +42,28 @@ public class LoginController {
 	@Autowired
 	PredavacRepository predavacRepo;
 	
-	@PostMapping(value="login")
-	public ResponseEntity<Response> login(@RequestBody Korisnik k, Principal principal) {
-		Korisnik korisnik = korisnikRepo.findByUsername(k.getUsername());
+	@PostMapping(value="/login")
+	public ResponseEntity<Response> login(@RequestParam("username") String username,@RequestParam("password") String password , Principal principal) {
+		System.out.println("USERNAMEEEEE: "+username);
+		Korisnik korisnik = korisnikRepo.findByUsername(username);
 		Response resp = new Response();
 		if ( korisnik == null) {
 			return new ResponseEntity<Response>(resp, HttpStatus.OK);
 		}
 		BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
-		if ( !passEncoder.matches(k.getPassword(), korisnik.getPassword()))
+		if ( !passEncoder.matches(password, korisnik.getPassword()))
 			return new ResponseEntity<Response>(resp, HttpStatus.OK);
+		Polaznik polaznik = polaznikRepo.findByKorisnik(korisnik);
+		Predavac predavac = predavacRepo.findByKorisnik(korisnik);
+		String role = polaznik != null ? "polaznik" : (predavac != null ? "predavac" : "admin");
 		resp.setIdKorisnika(korisnik.getIdKorisnik());
-		resp.setUloga(korisnik.getClass().getName());
-		resp.setToken(getJWTToken(k.getUsername()));
+		resp.setUloga(role);
+		System.out.println(role);
+		resp.setToken(getJWTToken(username));
 		return new ResponseEntity<Response>(resp, HttpStatus.OK);
 	}
 	
-	@PostMapping(value="registracija")
+	@PostMapping(value="/registracija")
 	public ResponseEntity<Boolean> registracija(@RequestParam(name="username") String username, @RequestParam(name="password") String password,
 			@RequestParam(name="ime") String ime, @RequestParam(name="prezime") String prezime,
 			@RequestParam(name="adresa") String adresa, @RequestParam(name="telefon") String telefon, HttpServletRequest request) {
@@ -98,7 +102,7 @@ public class LoginController {
 		Korisnik korisnik = korisnikRepo.findByUsername(username);
 		Polaznik polaznik = polaznikRepo.findByKorisnik(korisnik);
 		Predavac predavac = predavacRepo.findByKorisnik(korisnik);
-		String role = polaznik == null ? "polaznik" : (predavac == null ? "predavac" : "admin");
+		String role = polaznik != null ? "polaznik" : (predavac != null ? "predavac" : "admin");
 		List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(role);
 		
 		String token = Jwts.builder()

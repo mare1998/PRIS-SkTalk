@@ -1,6 +1,4 @@
-package security;
-
-import java.util.Optional;
+package com.example.demo.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +10,7 @@ import com.example.demo.repository.KorisnikRepository;
 
 import model.Korisnik;
 
-@Service 
+@Service("UserDetailProvider")
 public class UserDetailProvider implements UserDetailsService {
 	
 	@Autowired
@@ -20,12 +18,13 @@ public class UserDetailProvider implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//		Korisnik k = korisnikRepo.findByUsername(username);
-//		UserDetails ud = new MyUserDetails(k);
-//		return ud;
-		Optional<Korisnik> korisnik = Optional.of(korisnikRepo.findByUsername(username));
-		korisnik.orElseThrow(() -> new UsernameNotFoundException("Nije pronadjeno korisnicko ime: "+ username));
-		return korisnik.map(MyUserDetails::new).get();
+		System.out.println("USERNAMEEAAAA : "+username);
+		Korisnik k = korisnikRepo.findByUsername(username);
+		UserDetails ud = new MyUserDetails(k);
+		return ud;
+//		Optional<Korisnik> korisnik = Optional.of(korisnikRepo.findByUsername(korisnickoIme));
+//		korisnik.orElseThrow(() -> new UsernameNotFoundException("Nije pronadjeno korisnicko ime: "+ korisnickoIme));
+//		return korisnik.map(MyUserDetails::new).get();
 	}
 
 }

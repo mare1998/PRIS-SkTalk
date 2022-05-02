@@ -16,7 +16,7 @@ export class KursService {
 
   getKursevi(): Observable<Kurs[]> {
     return this.httpClient
-      .get<Kurs[]>(this.BACKEND_BASE + 'polaznik/sviKursevi')
+      .get<Kurs[]>(this.BACKEND_BASE + 'posetilac/sviKursevi')
       .pipe(
         map((results) =>
           results.sort((kurs1, kurs2) => kurs1.naziv.localeCompare(kurs2.naziv))
@@ -26,7 +26,7 @@ export class KursService {
 
   nadjiKurs(nazivKursa: String): Observable<Kurs> {
     return this.httpClient.get<Kurs>(
-      this.BACKEND_BASE + 'polaznik/pronadjiKursPoNazivu/' + nazivKursa
+      this.BACKEND_BASE + 'posetilac/pronadjiKursPoNazivu/' + nazivKursa
     );
   }
 
@@ -43,7 +43,9 @@ export class KursService {
   }
 
   getKurseviZaKategoriju(idKategorija: number): Observable<Kurs[]> {
-    return this.httpClient.get<Kurs[]>(this.BACKEND_BASE+'polaznik/kurseviZaKategoriju/'+idKategorija);
+    return this.httpClient.get<Kurs[]>(
+      this.BACKEND_BASE + 'posetilac/kurseviZaKategoriju/' + idKategorija
+    );
   }
 
   dodajNoviKurs(kursForm: any) {
@@ -52,7 +54,7 @@ export class KursService {
       .set('opis', kursForm.value.opis)
       .set('ocekivaniIshod', kursForm.value.ocekivaniIshod)
       .set('idKategorije', kursForm.value.idKategorije)
-      .set('idPredavaca', kursForm.value.idPredavaca)
+      .set('idPredavaca', kursForm.value.idPredavaca);
 
     return this.httpClient.post(
       this.BACKEND_BASE + 'administrator/dodajKurs',
