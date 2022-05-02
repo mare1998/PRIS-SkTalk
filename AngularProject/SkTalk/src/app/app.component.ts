@@ -25,7 +25,7 @@ export class AppComponent {
 
 
   proveriUlogovanost():boolean {
-    const tmp =localStorage.getItem('idUloga')
+    const tmp =localStorage.getItem('uloga')
     if (tmp != undefined) {
         return true;
     }
@@ -33,24 +33,24 @@ export class AppComponent {
   }
 
   proveriUlogovanostAdmina():boolean {
-    const tmp =localStorage.getItem('idUloga')
-    if (tmp != undefined && tmp == '1') {
+    const tmp =localStorage.getItem('uloga')
+    if (tmp != undefined && tmp.localeCompare("admin") == 0) {
         return true;
     }
     return false;
   }
 
   proveriUlogovanostPredavaca():boolean {
-    const tmp =localStorage.getItem('idUloga')
-    if (tmp != undefined && tmp == '2') {
+    const tmp =localStorage.getItem('uloga')
+    if (tmp != undefined && tmp.localeCompare("predavac") == 0) {
         return true;
     }
     return false;
   }
 
   proveriUlogovanostKorisnika():boolean {
-    const tmp =localStorage.getItem('idUloga')
-    if (tmp != undefined && tmp == '3') {
+    const tmp =localStorage.getItem('uloga')
+    if (tmp != undefined && tmp.localeCompare("polaznik") == 0) {
         return true;
     }
     return false;
