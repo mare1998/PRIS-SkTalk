@@ -1,17 +1,8 @@
 <div  class="nav">  
   <div><img class="rotate-earth nav-size"></div>
   <div class="naslov"><h4>Škola stranih jezika "TALK"</h4></div>
+  <div><a routerLink="svi-kursevi" class="btn-blue" role="button">O nama</a></div>
   <div><a routerLink="svi-kursevi" class="btn-blue" role="button">Svi kursevi</a></div>
-  <div>
-    <a><select class="btn-blue" ngModel name="idKategorija">
-      <option  style="text-transform: uppercase;" value="" selected disabled style="color: white">
-        Filtriraj po kategorijama
-    </option>
-    <option *ngFor="let kat of kategorije" value="{{ kat.idKategorija }}">
-         {{ kat.naziv }}
-     </option>
-  </select></a>
-  </div>
   <div *ngIf="proveriUlogovanostAdmina()"><a  routerLink="dodaj-kurs" class="btn-blue" role="button" >Dodaj kurs</a></div>
   <div *ngIf="proveriUlogovanostAdmina()"><a  routerLink="dodaj-predavaca" class="btn-blue" role="button" >Dodaj predavača</a></div>
   <div *ngIf="proveriUlogovanostAdmina()"><a  routerLink="dodaj-kategoriju" class="btn-blue" role="button" >Dodaj kategoriju</a></div>

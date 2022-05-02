@@ -1,20 +1,22 @@
 <div class="bg">
   <form class="form-inline my-2 my-lg-0">
-    <input
-      class="form-control mr-sm-2"
-      type="search"
-      placeholder="Pretrazi kurs"
-      aria-label="Search"
-    />
-    <button class="btn btn-success my-2 my-sm-0" type="submit">
-      Pretrazi kurs
-    </button>
+    <div style="margin-right: 20px;">
+      <select class="btn-blue" #idKategorija
+        (change)='kategorijaSelected(idKategorija.value)'>
+      <option *ngFor="let kat of kategorije" [value]="kat.idKategorija">
+           {{ kat.naziv }}
+       </option>
+    </select>
+    </div>
+    <input class="form-control mr-sm-2" type="search" name ="nazivKursa" placeholder="Pretrazi kurs" aria-label="Search"/>
+    <button class="btn btn-success my-2 my-sm-0" type="submit">Pretrazi kurs</button>
   </form>
   <div *ngIf="trazeniKurs != undefined">
     <app-kurs-item [course]="trazeniKurs"></app-kurs-item>
   </div>
-  <hr />
-  <hr />
+  <div *ngIf="filtriraniKursevi != undefined">
+    <app-kurs-item [course]="kurs" *ngFor="let kurs of filtriraniKursevi"></app-kurs-item>
+  </div>
   <div *ngIf="kursevi != undefined">
     <app-kurs-item [course]="kurs" *ngFor="let kurs of kursevi"></app-kurs-item>
   </div>
