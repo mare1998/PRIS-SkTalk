@@ -45,4 +45,17 @@ export class KursViewComponent implements OnInit {
   postavljanjeSlike(slika: string) {
     this.slika = slika;
   }
+
+  prijaviSeNaKurs(){
+    console.log("Prijavi se na kurs");
+  }
+
+  proveriUlogovanostKorisnika():boolean {
+    console.log("U metodi proveravamo ulogovanost");
+    const tmp =localStorage.getItem('idUloga')
+    if (tmp != undefined && tmp == '3') {
+        return true;
+    }
+    return false;
+  }
 }

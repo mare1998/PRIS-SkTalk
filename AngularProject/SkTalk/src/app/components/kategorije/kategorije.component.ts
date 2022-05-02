@@ -15,6 +15,7 @@ export class KategorijeComponent implements OnInit {
   public kategorije: Kategorija[] | undefined;
 
   public kursevi: Kurs[] | undefined;
+  public filtriraniKursevi: Kurs[]| undefined;
 
   public selectedKat: Kategorija = new Kategorija();
   public trazeniKurs: Kurs | undefined;
@@ -39,13 +40,23 @@ export class KategorijeComponent implements OnInit {
     this.reloadKategorijasList.next();
   }
 
+  kategorijaSelected(value: number){
+    console.log(value);
+    this.kursService.getKurseviZaKategoriju(value).subscribe((resp:any) => {
+      this.filtriraniKursevi = resp;
+      console.log('Dobavljeni kursevi');
+      this.kursevi = undefined;
+      window.location.reload();
+    })
+  }
+
   nadjiKurs(searchForm: any) {
     this.kursService.nadjiKurs(searchForm.value.nazivKnjige).subscribe((resp:any) => {
       if (resp == null) {
-        alert("Nema knjige sa prosledjenim nazivom!");
+        alert("Nema kursa sa prosledjenim nazivom!");
         window.location.href = "http://localhost:4200/svi-kursevi"
       } else {
-        const naziv = searchForm.value.nazivKnjige;
+        const naziv = searchForm.value.nazivKursa;
         this.router.navigate(["/prikaz-kursa/"+naziv])
       }
     })

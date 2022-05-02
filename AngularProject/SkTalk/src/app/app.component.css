@@ -96,7 +96,7 @@
 	text-align: center;
 	padding: 100px 50px 50px;
 	background-color: rgba(255, 255, 255, .85);
-	min-height: 100vh;
+	min-height: 200vh;
 	
 	
 	display: flex;
@@ -126,6 +126,17 @@
 	width: 400px;
 	margin-top: 50px;
 }
+
+.select-red {
+	justify-content: left;
+    background-color: #309708;
+	border-radius: 15px;
+	width: 200px;
+	padding: 10px;
+	color: whitesmoke;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	margin-right: 10px
+  }
 
 .btn-blue {
     outline:none;

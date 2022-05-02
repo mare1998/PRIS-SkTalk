@@ -1,10 +1,16 @@
 <div  class="nav">  
-  <div><img class="rotate-earth nav-size"></div>
+  <div style="justify-content: start;"><img class="rotate-earth nav-size"></div>
   <div class="naslov"><h4>Škola stranih jezika "TALK"</h4></div>
-  <div><a routerLink="svi-kursevi" class="btn-blue" role="button">Svi kursevi</a> </div>
-  <div><a  routerLink="dodaj-kurs" class="btn-blue" role="button" >Dodaj kurs</a></div>
-  <div><a  routerLink="dodaj-predavaca" class="btn-blue" role="button" >Dodaj predavača</a></div> 
-  <div><a  routerLink="dodaj-kategoriju" class="btn-blue" role="button" >Dodaj kategoriju</a></div> 
+  <div><a routerLink="svi-kursevi" class="btn-blue" role="button">O nama</a></div>
+  <div><a routerLink="svi-kursevi" class="btn-blue" role="button">Svi kursevi</a></div>
+  <div *ngIf="proveriUlogovanostAdmina()"><a  routerLink="dodaj-kurs" class="btn-blue" role="button" >Dodaj kurs</a></div>
+  <div *ngIf="proveriUlogovanostAdmina()"><a  routerLink="dodaj-predavaca" class="btn-blue" role="button" >Dodaj predavača</a></div>
+  <div *ngIf="proveriUlogovanostAdmina()"><a  routerLink="dodaj-kategoriju" class="btn-blue" role="button" >Dodaj kategoriju</a></div>
+  <div *ngIf="!proveriUlogovanost()"><a  routerLink="login" class="btn-blue" role="button" >Prijavi se</a></div>  
+  <div *ngIf="!proveriUlogovanost()"><a  routerLink="register" class="btn-blue" role="button" >Registruj se</a></div>
+  <div *ngIf="proveriUlogovanost()">
+    <a routerLink="login" class="btn-blue" role="button" (click)="logOut()" >Odjavi se</a>
+</div>  
   <div><img class="logo-image"/></div><br>
 </div>               
 <div class="background"></div>

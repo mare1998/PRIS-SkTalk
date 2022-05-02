@@ -1,0 +1,33 @@
+<div class="bg">
+    <form #lekcijaForm>
+        <h3>Dodavanje lekcije</h3><br><br>
+        <div>
+            <select class="select-red" ngModel name="idKurs">
+              <option value="" selected disabled style="color: white">
+                Odaberite kurs
+              </option>
+              <!-- <option *ngFor="let kurs of kursevi" value="{{ kurs.idKurs}}"> -->
+                <!-- {{ kurs.naziv }}
+              </option> -->
+            </select>
+          </div><br>
+          <div class="form-group">
+          <label>Tekst nove lekcije:</label>
+          <textarea type="text" class="form-control" placeholder="Tekst" required ngModel name="tekst"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Slika lekcije:</label>
+          <input type="text" class="form-control" placeholder="Slika" required ngModel name="slika">
+        </div>
+        <div class="form-group">
+          <label>Url videa lekcije:</label>
+          <input type="text" class="form-control" placeholder="URL" required ngModel name="url_videa">
+        </div>
+        <div class="form-group">
+          <br />
+          <button type="submit" class="btn btn-success">
+            Dodaj novu lekciju
+          </button>
+        </div>
+    </form>
+</div>

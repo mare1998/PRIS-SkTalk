@@ -42,6 +42,10 @@ export class KursService {
     );
   }
 
+  getKurseviZaKategoriju(idKategorija: number): Observable<Kurs[]> {
+    return this.httpClient.get<Kurs[]>(this.BACKEND_BASE+'polaznik/kurseviZaKategoriju/'+idKategorija);
+  }
+
   dodajNoviKurs(kursForm: any) {
     let params = new HttpParams()
       .set('naziv', kursForm.value.naziv)
