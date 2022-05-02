@@ -28,7 +28,7 @@ export class AddLekcijaComponent implements OnInit {
         alert('Uspesno dodavanje');
         window.location.href = 'http://localhost:4200/dodaj-lekciju';
       } else {
-        alert('Neuspesno dodavanje kursa!');
+        alert('Neuspesno dodavanje lekcije!');
       }
     });
   }

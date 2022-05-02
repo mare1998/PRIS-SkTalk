@@ -13,15 +13,15 @@
           </div><br>
           <div class="form-group">
           <label>Tekst nove lekcije:</label>
-          <textarea type="text" class="form-control" placeholder="Tekst" required ngModel name="tekst"></textarea>
+          <textarea type="text" class="form-control" placeholder="Tekst" ngModel name="tekst"></textarea>
         </div>
         <div class="form-group">
           <label>Slika lekcije:</label>
-          <input type="text" class="form-control" placeholder="Slika" required ngModel name="slika">
+          <input type="file" ngModel name="slika" class="input-f-red" accept=".png, .jpg, .jpeg"/>
         </div>
         <div class="form-group">
           <label>Url videa lekcije:</label>
-          <input type="text" class="form-control" placeholder="URL" required ngModel name="url_videa">
+          <input type="url" class="form-control" placeholder="https://example.com" ngModel name="url_videa">
         </div>
         <div class="form-group">
           <br />
