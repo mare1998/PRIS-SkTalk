@@ -70,7 +70,7 @@ public class PolaznikController {
 		return new ResponseEntity<Kur>(k, HttpStatus.OK);
 	}
 	
-	@GetMapping(value="/kurseviZaKategoriju/{idKursa}")
+	@GetMapping(value="/kurseviZaKategoriju/{idKategorija}")
 	public ResponseEntity<List<Kur>> kurseviZaKategoriju(@PathVariable Integer id){
 		Kategorija k = kategorijaRepo.getById(id);
 		List<Kur> kursevi = kursRepo.findByKategorija(k);
@@ -88,9 +88,9 @@ public class PolaznikController {
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 	
-	@GetMapping(value="/pronadjiLekcijeKursa/{nazivKursa}")
-	public ResponseEntity<List<Lekcija>> pronadjiLekcijeKursa(@PathVariable String nazivKursa) {
-		Kur kurs = kursRepo.findByNaziv(nazivKursa);
+	@GetMapping(value="/pronadjiLekcijeKursa/{idKurs}")
+	public ResponseEntity<List<Lekcija>> pronadjiLekcijeKursa(@PathVariable int idKurs) {
+		Kur kurs = kursRepo.getById(idKurs);
 		return new ResponseEntity<List<Lekcija>>(kurs.getLekcijas(), HttpStatus.OK);
 	}
 }

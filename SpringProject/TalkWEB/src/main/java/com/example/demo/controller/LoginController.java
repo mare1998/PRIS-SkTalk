@@ -21,15 +21,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.repository.KorisnikRepository;
 import com.example.demo.repository.PolaznikRepository;
+import com.example.demo.repository.PredavacRepository;
 
 import classes.Response;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import model.Korisnik;
 import model.Polaznik;
+import model.Predavac;
 
 @Controller
-@RequestMapping(value="/login")
+@RequestMapping(value="/security")
 public class LoginController {
 	
 	@Autowired
@@ -37,6 +39,9 @@ public class LoginController {
 	
 	@Autowired
 	PolaznikRepository polaznikRepo;
+	
+	@Autowired
+	PredavacRepository predavacRepo;
 	
 	@PostMapping(value="login")
 	public ResponseEntity<Response> login(@RequestBody Korisnik k, Principal principal) {
@@ -46,7 +51,7 @@ public class LoginController {
 			return new ResponseEntity<Response>(resp, HttpStatus.OK);
 		}
 		BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
-		if ( !passEncoder.matches(k.getPassword(), korisnik.getPassword())) //ukoliko se sifra ne poklapa sa sifrom koja odgovara tom usernameu
+		if ( !passEncoder.matches(k.getPassword(), korisnik.getPassword()))
 			return new ResponseEntity<Response>(resp, HttpStatus.OK);
 		resp.setIdKorisnika(korisnik.getIdKorisnik());
 		resp.setUloga(korisnik.getClass().getName());
@@ -90,7 +95,11 @@ public class LoginController {
 	
 	private String getJWTToken(String username) {
 		String secretKey = "mySecretKey";
-		List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(korisnikRepo.findByUsername(username).getClass().getName());
+		Korisnik korisnik = korisnikRepo.findByUsername(username);
+		Polaznik polaznik = polaznikRepo.findByKorisnik(korisnik);
+		Predavac predavac = predavacRepo.findByKorisnik(korisnik);
+		String role = polaznik == null ? "polaznik" : (predavac == null ? "predavac" : "admin");
+		List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(role);
 		
 		String token = Jwts.builder()
 				.setId("softtekJWT")
