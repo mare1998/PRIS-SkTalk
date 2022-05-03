@@ -6,14 +6,13 @@
         <select
           class="select-red"
           #idKategorija
-          (change)="kategorijaSelected(idKategorija.value)"
-        >
+          (change)="kategorijaSelected(idKategorija.value)">
           <option *ngFor="let kat of kategorije" [value]="kat.idKategorija">
             {{ kat.naziv }}
           </option>
         </select></label
       >
-    </div>
+    </div><br><br><hr>
     <!-- <input class="form-control mr-sm-2" type="search" name ="nazivKursa" placeholder="Pretrazi kurs" aria-label="Search"/>
     <button class="btn btn-success my-2 my-sm-0" type="submit">Pretrazi kurs</button>
   </form><br><br>-->

@@ -15,6 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddLekcijaComponent } from './components/add-lekcija/add-lekcija.component';
+import { AuthGuard } from './guard/auth-guard';
+import { AuthGuardPolaznik } from './guard/auth-guard-polaznik';
+import { AuthGuardAdmin } from './guard/auth-guard-admin';
+import { AuthGuardPredavac } from './guard/auth-guard-predavac';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,7 @@ import { AddLekcijaComponent } from './components/add-lekcija/add-lekcija.compon
     AddLekcijaComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, RouterModule],
-  providers: [],
+  providers: [AuthGuard, AuthGuardPolaznik, AuthGuardPredavac, AuthGuardAdmin],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -42,12 +42,12 @@ export class KategorijeComponent implements OnInit {
   }
 
   kategorijaSelected(value: number) {
+    this.filtriraniKursevi = undefined;
     console.log(value);
     this.kursService.getKurseviZaKategoriju(value).subscribe((resp: any) => {
       this.filtriraniKursevi = resp;
       console.log('Dobavljeni kursevi');
       this.kursevi = undefined;
-      window.location.reload();
     });
   }
 
