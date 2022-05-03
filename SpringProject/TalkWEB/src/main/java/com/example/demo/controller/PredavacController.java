@@ -31,14 +31,14 @@ public class PredavacController {
 	@RequestMapping(value="/dodajLekciju", method=RequestMethod.POST, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
 	public ResponseEntity<Boolean> dodajLekciju(@RequestParam("idKurs") Integer idKursa, @RequestPart("slika") MultipartFile slika, @RequestParam("tekst") String tekst, @RequestParam("url_videa") String urlVidea) throws IOException{
 		Lekcija lekcija = new Lekcija();
-		System.out.println("Lekcija" + slika);
 		lekcija.setKur(kursRepo.getById(idKursa));
 		byte[] mediaBytes = slika.getBytes();
 		lekcija.setSlika(mediaBytes);
 		lekcija.setTekst(tekst);
 		lekcija.setUrlVidea(urlVidea);
 		lekcija = lekcijaRepo.save(lekcija);
-		if(lekcija != null) {
+		System.out.println("Lekcija " + lekcija.getTekst());
+		if(lekcija == null) {
 			return new ResponseEntity<Boolean>(false, HttpStatus.OK);
 		}
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);

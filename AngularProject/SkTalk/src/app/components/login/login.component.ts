@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
           alert('Logovanje je neuspešno! Probajte ponovo!'),
             this.router.navigate(['/login']);
         } else {
-          console.log(resp);
+          console.log(resp.token);
           localStorage.setItem('token', resp.token),
             localStorage.setItem('idKorisnika', resp.idKorisnika),
             localStorage.setItem('uloga', resp.uloga),

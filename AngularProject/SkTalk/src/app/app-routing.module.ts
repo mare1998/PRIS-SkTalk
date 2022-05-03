@@ -30,7 +30,11 @@ const routes: Routes = [
     canActivate: [AuthGuardAdmin],
   },
   { path: 'prikaz-kursa/:nazivKursa', component: KursViewComponent },
-  { path: 'dodaj-lekciju', component: AddLekcijaComponent },
+  {
+    path: 'dodaj-lekciju',
+    component: AddLekcijaComponent,
+    canActivate: [AuthGuardPredavac],
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 ];

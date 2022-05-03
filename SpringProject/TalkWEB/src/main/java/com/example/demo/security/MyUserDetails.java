@@ -40,7 +40,7 @@ public class MyUserDetails implements UserDetails{
 		Predavac predavac = predavacRepo.findByKorisnik(k);
 		String role = polaznik != null ? "polaznik" : (predavac != null ? "predavac" : "admin");
 		
-		this.authorities = Arrays.asList(new SimpleGrantedAuthority("ROLE_" + role));
+		this.authorities = Arrays.asList(new SimpleGrantedAuthority(role));
 	}
 
 	@Override
