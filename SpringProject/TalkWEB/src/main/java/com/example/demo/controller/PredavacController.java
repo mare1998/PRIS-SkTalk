@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,9 +28,10 @@ public class PredavacController {
 	@Autowired
 	KursRepository kursRepo;
 	
-	@RequestMapping(value="/dodajLekciju", method=RequestMethod.GET)
+	@RequestMapping(value="/dodajLekciju", method=RequestMethod.POST, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
 	public ResponseEntity<Boolean> dodajLekciju(@RequestParam("idKurs") Integer idKursa, @RequestPart("slika") MultipartFile slika, @RequestParam("tekst") String tekst, @RequestParam("url_videa") String urlVidea) throws IOException{
 		Lekcija lekcija = new Lekcija();
+		System.out.println("Lekcija" + slika);
 		lekcija.setKur(kursRepo.getById(idKursa));
 		byte[] mediaBytes = slika.getBytes();
 		lekcija.setSlika(mediaBytes);

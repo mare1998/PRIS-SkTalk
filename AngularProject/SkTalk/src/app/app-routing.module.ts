@@ -13,18 +13,30 @@ import { AuthGuardPredavac } from './guard/auth-guard-predavac';
 
 const routes: Routes = [
   { path: '', redirectTo: 'svi-kursevi', pathMatch: 'full' },
-  { path: 'svi-kursevi', component: KurseviComponent}, 
-  { path: 'dodaj-kurs', component: AddKursComponent, canActivate:[AuthGuardAdmin]},
-  { path: 'dodaj-predavaca', component: AddPredavacComponent, canActivate:[AuthGuardAdmin]},
-  { path: 'dodaj-kategoriju', component: AddKategorijaComponent, canActivate:[AuthGuardAdmin]},
-  { path: 'prikaz-kursa/:nazivKursa', component: KursViewComponent}, 
-  {path: 'dodaj-lekciju', component: AddLekcijaComponent, canActivate:[AuthGuardPredavac]},
-  { path: 'login', component:LoginComponent},
-  { path: 'register', component:RegisterComponent}
+  { path: 'svi-kursevi', component: KurseviComponent },
+  {
+    path: 'dodaj-kurs',
+    component: AddKursComponent,
+    canActivate: [AuthGuardAdmin],
+  },
+  {
+    path: 'dodaj-predavaca',
+    component: AddPredavacComponent,
+    canActivate: [AuthGuardAdmin],
+  },
+  {
+    path: 'dodaj-kategoriju',
+    component: AddKategorijaComponent,
+    canActivate: [AuthGuardAdmin],
+  },
+  { path: 'prikaz-kursa/:nazivKursa', component: KursViewComponent },
+  { path: 'dodaj-lekciju', component: AddLekcijaComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

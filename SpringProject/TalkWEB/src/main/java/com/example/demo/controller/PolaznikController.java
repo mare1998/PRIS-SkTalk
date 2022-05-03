@@ -40,6 +40,7 @@ public class PolaznikController {
 	@PostMapping(value="/prijavaNaKurs")
 	public ResponseEntity<Boolean> prijavaNaKurs(@RequestParam(name="idKorisnik") Integer idKorisnik, @RequestParam(name="idKurs") Integer idKurs){
 		Polaznik polaznik = polaznikRepo.getById(idKorisnik);
+		System.out.println("Polaznik "+polaznik.getKorisnik().getIdKorisnik());
 		Kur kurs = kursRepo.getById(idKurs);
 		polaznik.getKurs().add(kurs);
 		kurs.getPolazniks().add(polaznik);

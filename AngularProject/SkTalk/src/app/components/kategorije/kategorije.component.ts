@@ -15,7 +15,7 @@ export class KategorijeComponent implements OnInit {
   public kategorije: Kategorija[] | undefined;
 
   public kursevi: Kurs[] | undefined;
-  public filtriraniKursevi: Kurs[]| undefined;
+  public filtriraniKursevi: Kurs[] | undefined;
 
   public selectedKat: Kategorija = new Kategorija();
   public trazeniKurs: Kurs | undefined;
@@ -30,7 +30,7 @@ export class KategorijeComponent implements OnInit {
   ngOnInit(): void {
     this.kategorijaService.getKategorije().subscribe((resp: any) => {
       this.kategorije = resp;
-      console.log("Kategorije pribavljeni: "+resp);
+      console.log('Kategorije pribavljeni: ' + resp);
     });
     this.kursService.getKursevi().subscribe((resp: any) => {
       (this.kursevi = resp), (this.trazeniKurs = undefined);
@@ -41,25 +41,27 @@ export class KategorijeComponent implements OnInit {
     this.reloadKategorijasList.next();
   }
 
-  kategorijaSelected(value: number){
+  kategorijaSelected(value: number) {
     console.log(value);
-    this.kursService.getKurseviZaKategoriju(value).subscribe((resp:any) => {
+    this.kursService.getKurseviZaKategoriju(value).subscribe((resp: any) => {
       this.filtriraniKursevi = resp;
       console.log('Dobavljeni kursevi');
       this.kursevi = undefined;
       window.location.reload();
-    })
+    });
   }
 
   nadjiKurs(searchForm: any) {
-    this.kursService.nadjiKurs(searchForm.value.nazivKnjige).subscribe((resp:any) => {
-      if (resp == null) {
-        alert("Nema kursa sa prosledjenim nazivom!");
-        window.location.href = "http://localhost:4200/svi-kursevi"
-      } else {
-        const naziv = searchForm.value.nazivKursa;
-        this.router.navigate(["/prikaz-kursa/"+naziv])
-      }
-    })
+    this.kursService
+      .nadjiKurs(searchForm.value.nazivKursa)
+      .subscribe((resp: any) => {
+        if (resp == null) {
+          alert('Nema kursa sa prosledjenim nazivom!');
+          window.location.href = 'http://localhost:4200/svi-kursevi';
+        } else {
+          const naziv = searchForm.value.nazivKursa;
+          this.router.navigate(['/prikaz-kursa/' + naziv]);
+        }
+      });
   }
 }

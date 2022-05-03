@@ -32,13 +32,13 @@ export class KursService {
 
   getPredavac(idKurs: number): Observable<Korisnik> {
     return this.httpClient.get<Korisnik>(
-      this.BACKEND_BASE + 'polaznik/pronadjiPredavaca/' + idKurs
+      this.BACKEND_BASE + 'posetilac/pronadjiPredavaca/' + idKurs
     );
   }
 
   getKategorijaKursa(idKurs: number): Observable<Kategorija> {
     return this.httpClient.get<Kategorija>(
-      this.BACKEND_BASE + 'polaznik/pronadjiKategoriju/' + idKurs
+      this.BACKEND_BASE + 'posetilac/pronadjiKategoriju/' + idKurs
     );
   }
 
@@ -48,16 +48,23 @@ export class KursService {
     );
   }
 
-  prijaviSeNaKurs(idKurs: string, idKorisnik: string){
+  prijaviSeNaKurs(idKorisnik: string, idKurs: string) {
+    console.log('id kursa' + idKurs + ' id korisnik' + idKorisnik);
     let params = new HttpParams()
-                  .set('idKurs', idKurs)
-                  .set('idKorisnik', idKorisnik);
-    return this.httpClient.post(this.BACKEND_BASE+'polaznik/prijaviSeNaKurs', params,
-    {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded',
-      }),
-    })
+      .set('idKorisnik', idKorisnik)
+      .set('idKurs', idKurs);
+    console.log(
+      idKorisnik + ' |  ' + idKurs + ' | ' + localStorage.getItem('uloga')
+    );
+    return this.httpClient.post(
+      this.BACKEND_BASE + 'polaznik/prijavaNaKurs',
+      params,
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }),
+      }
+    );
   }
 
   dodajNoviKurs(kursForm: any) {

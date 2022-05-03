@@ -42,9 +42,10 @@ public class PosetilacController {
 	}
 	
 	@GetMapping(value="/kurseviZaKategoriju/{idKategorija}")
-	public ResponseEntity<List<Kur>> kurseviZaKategoriju(@PathVariable Integer id){
-		Kategorija k = kategorijaRepo.getById(id);
-		List<Kur> kursevi = kursRepo.findByKategorija(k);
+	public ResponseEntity<List<Kur>> kurseviZaKategoriju(@PathVariable Integer idKategorija){
+		System.out.println("ID KATEGORIJE: "+idKategorija);
+		Kategorija k = kategorijaRepo.getById(idKategorija);
+		List<Kur> kursevi = kursRepo.findAllByKategorija(k);
 		return new ResponseEntity<List<Kur>>(kursevi, HttpStatus.OK);
 	}
 	

@@ -24,6 +24,7 @@ export class KursViewComponent implements OnInit {
 
   ngOnInit(): void {
     const nazivKursa = this.route.snapshot.paramMap.get('nazivKursa');
+    console.log(nazivKursa);
     this.kursService.nadjiKurs(nazivKursa).subscribe((resp: any) => {
       this.izabraniKurs = resp;
       console.log(this.izabraniKurs.idKurs);
@@ -47,23 +48,33 @@ export class KursViewComponent implements OnInit {
   }
 
   //klikom na dugme polaznik se prijavljuje na zeljeni kurs
-  prijaviSeNaKurs(){
-    console.log("Prijavi se na kurs");
-    this.kursService.prijaviSeNaKurs(localStorage.getItem('idKorisnik'), this.izabraniKurs.idKurs.toString()).subscribe((resp:any)=> {
-      if (resp == true){
-        alert("Uspesno ste se prijavili na kurs!");
-        window.location.reload();
-      } else {
-        alert("Neuspesno prijavljivanje na kurs, probajte ponovo!");
-      }
-    })
+  prijaviSeNaKurs() {
+    if (this.proveriUlogovanostKorisnika()) {
+      console.log('Prijavi se na kurs');
+      this.kursService
+        .prijaviSeNaKurs(
+          localStorage.getItem('idKorisnika'),
+          this.izabraniKurs.idKurs.toString()
+        )
+        .subscribe((resp: any) => {
+          console.log('RESP: ' + resp);
+          if (resp == true) {
+            alert('Uspesno ste se prijavili na kurs!');
+            window.location.reload();
+          } else {
+            alert('Neuspesno prijavljivanje na kurs, probajte ponovo!');
+          }
+        });
+    } else {
+      window.location.href = 'http://localhost:4200/login';
+    }
   }
 
-  proveriUlogovanostKorisnika():boolean {
-    console.log("U metodi proveravamo ulogovanost");
-    const tmp =localStorage.getItem('uloga')
-    if (tmp != undefined && tmp.localeCompare("polaznik") == 0) {
-        return true;
+  proveriUlogovanostKorisnika(): boolean {
+    console.log('U metodi proveravamo ulogovanost');
+    const tmp = localStorage.getItem('uloga');
+    if (tmp != undefined && tmp.localeCompare('polaznik') == 0) {
+      return true;
     }
     return false;
   }

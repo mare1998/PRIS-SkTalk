@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
           console.log(resp);
           localStorage.setItem('token', resp.token),
             localStorage.setItem('idKorisnika', resp.idKorisnika),
-            localStorage.setItem('idUloga', resp.idUloga),
+            localStorage.setItem('uloga', resp.uloga),
             this.router.navigate(['/svi-kursevi']);
         }
       });
