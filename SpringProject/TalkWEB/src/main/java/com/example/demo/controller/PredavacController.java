@@ -28,7 +28,7 @@ public class PredavacController {
 	KursRepository kursRepo;
 	
 	@RequestMapping(value="/dodajLekciju", method=RequestMethod.GET)
-	public ResponseEntity<Boolean> dodajLekciju(@RequestParam("idKursa") Integer idKursa, @RequestPart("slika") MultipartFile slika, @RequestParam("tekst") String tekst, @RequestParam("urlVidea") String urlVidea) throws IOException{
+	public ResponseEntity<Boolean> dodajLekciju(@RequestParam("idKurs") Integer idKursa, @RequestPart("slika") MultipartFile slika, @RequestParam("tekst") String tekst, @RequestParam("url_videa") String urlVidea) throws IOException{
 		Lekcija lekcija = new Lekcija();
 		lekcija.setKur(kursRepo.getById(idKursa));
 		byte[] mediaBytes = slika.getBytes();

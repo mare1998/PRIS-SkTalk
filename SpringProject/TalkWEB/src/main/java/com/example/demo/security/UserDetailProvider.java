@@ -22,9 +22,6 @@ public class UserDetailProvider implements UserDetailsService {
 		Korisnik k = korisnikRepo.findByUsername(username);
 		UserDetails ud = new MyUserDetails(k);
 		return ud;
-//		Optional<Korisnik> korisnik = Optional.of(korisnikRepo.findByUsername(korisnickoIme));
-//		korisnik.orElseThrow(() -> new UsernameNotFoundException("Nije pronadjeno korisnicko ime: "+ korisnickoIme));
-//		return korisnik.map(MyUserDetails::new).get();
 	}
 
 }
