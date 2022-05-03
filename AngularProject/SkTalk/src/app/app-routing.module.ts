@@ -9,6 +9,7 @@ import { KurseviComponent } from './components/kursevi/kursevi.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuardAdmin } from './guard/auth-guard-admin';
+import { AuthGuardPredavac } from './guard/auth-guard-predavac';
 
 const routes: Routes = [
   { path: '', redirectTo: 'svi-kursevi', pathMatch: 'full' },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'dodaj-predavaca', component: AddPredavacComponent, canActivate:[AuthGuardAdmin]},
   { path: 'dodaj-kategoriju', component: AddKategorijaComponent, canActivate:[AuthGuardAdmin]},
   { path: 'prikaz-kursa/:nazivKursa', component: KursViewComponent}, 
-  {path: 'dodaj-lekciju', component: AddLekcijaComponent},
+  {path: 'dodaj-lekciju', component: AddLekcijaComponent, canActivate:[AuthGuardPredavac]},
   { path: 'login', component:LoginComponent},
   { path: 'register', component:RegisterComponent}
 ];

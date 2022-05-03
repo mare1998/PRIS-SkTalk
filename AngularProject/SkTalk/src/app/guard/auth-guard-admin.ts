@@ -4,7 +4,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 @Injectable()
 export class AuthGuardAdmin implements CanActivate {
 
-    public idUloga: number
+    public uloga: string
 
     constructor(private router:Router){}
 
@@ -12,15 +12,15 @@ export class AuthGuardAdmin implements CanActivate {
         console.log(localStorage.getItem("idUloga"))
         var x = localStorage.getItem("idUloga");
         if (x != null){
-            this.idUloga = +x; //konvertuje string u broj, posto se iz localStoragea sve cita kao string, a nama treba idUloge
-            if (localStorage.getItem("token") && this.idUloga == 1){
-                console.log("proverili smo token i idUloge, poklapa se sa adminom")
+            this.uloga = x; 
+            if (localStorage.getItem("token") && this.uloga.localeCompare("admin") == 0){
+                console.log("proverili smo token i uloge, poklapa se sa adminom.")
                 return true;
             }
         }   
-        console.log("prosli smo proveru za admin, nije ulogovan admin vec korisnik"); 
-        alert("Niste ulogovani kao predavac!")
-        this.router.navigate(["/sve-kategorije"])
+        console.log("prosli smo proveru za admin"); 
+        alert("Niste ulogovani kao admin!")
+        this.router.navigate(["/svi-kursevi"])
         return false;
     }
 }
