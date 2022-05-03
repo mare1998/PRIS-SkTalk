@@ -48,6 +48,18 @@ export class KursService {
     );
   }
 
+  prijaviSeNaKurs(idKurs: string, idKorisnik: string){
+    let params = new HttpParams()
+                  .set('idKurs', idKurs)
+                  .set('idKorisnik', idKorisnik);
+    return this.httpClient.post(this.BACKEND_BASE+'polaznik/prijaviSeNaKurs', params,
+    {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+      }),
+    })
+  }
+
   dodajNoviKurs(kursForm: any) {
     let params = new HttpParams()
       .set('naziv', kursForm.value.naziv)

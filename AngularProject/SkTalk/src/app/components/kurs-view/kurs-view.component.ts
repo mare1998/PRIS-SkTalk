@@ -46,14 +46,23 @@ export class KursViewComponent implements OnInit {
     this.slika = slika;
   }
 
+  //klikom na dugme polaznik se prijavljuje na zeljeni kurs
   prijaviSeNaKurs(){
     console.log("Prijavi se na kurs");
+    this.kursService.prijaviSeNaKurs(localStorage.getItem('idKorisnik'), this.izabraniKurs.idKurs.toString()).subscribe((resp:any)=> {
+      if (resp == true){
+        alert("Uspesno ste se prijavili na kurs!");
+        window.location.reload();
+      } else {
+        alert("Neuspesno prijavljivanje na kurs, probajte ponovo!");
+      }
+    })
   }
 
   proveriUlogovanostKorisnika():boolean {
     console.log("U metodi proveravamo ulogovanost");
-    const tmp =localStorage.getItem('idUloga')
-    if (tmp != undefined && tmp == '3') {
+    const tmp =localStorage.getItem('uloga')
+    if (tmp != undefined && tmp.localeCompare("polaznik") == 0) {
         return true;
     }
     return false;
